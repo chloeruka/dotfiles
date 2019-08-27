@@ -1,3 +1,21 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
+[submodule "tmux/plugins/tmux-continuum"]
+	path = tmux/plugins/tmux-continuum
+	url = https://git::@github.com/tmux-plugins/tmux-continuum
+[submodule "tmux/plugins/tmux-resurrect"]
+	path = tmux/plugins/tmux-resurrect
+	url = https://git::@github.com/tmux-plugins/tmux-resurrect
+[submodule "tmux/plugins/tmux-sensible"]
+	path = tmux/plugins/tmux-sensible
+	url = https://git::@github.com/tmux-plugins/tmux-sensible
+[submodule "tmux/plugins/tpm"]
+	path = tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule "vim/pack/ruka/start/typescript-vim"]
+	path = vim/pack/ruka/start/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim
+[submodule "vim/pack/ruka/start/vim-obsession"]
+	path = vim/pack/ruka/start/vim-obsession
+	url = git://github.com/tpope/vim-obsession.git
