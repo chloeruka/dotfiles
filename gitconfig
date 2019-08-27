@@ -1,0 +1,8 @@
+[user]
+	name = Chloe Hutchinson
+	email = chloe.hutchinson@cultureamp.com
+[core]
+	excludesfile = /Users/chloe.hutchinson/.gitignore_global
+	preloadIndex = true
+[alias]
+	l = !git --no-pager log --oneline $(git merge-base --fork-point master)..
