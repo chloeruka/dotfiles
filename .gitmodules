@@ -1,9 +1,0 @@
-[submodule "dotbot"]
-	path = dotbot
-	url = https://github.com/anishathalye/dotbot
-[submodule "vim/pack/ruka/start/typescript-vim"]
-	path = vim/pack/ruka/start/typescript-vim
-	url = https://github.com/leafgarland/typescript-vim
-[submodule "vim/pack/ruka/start/vim-obsession"]
-	path = vim/pack/ruka/start/vim-obsession
-	url = git://github.com/tpope/vim-obsession.git
