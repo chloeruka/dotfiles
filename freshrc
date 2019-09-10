@@ -1,0 +1,22 @@
+# freshshell.com
+#
+# Examples:
+#
+#   fresh twe4ked/dotfiles shell/functions/\*
+#   fresh jasoncodes/dotfiles shell/aliases/rails.sh
+#   fresh jasoncodes/dotfiles config/tmux.conf --file
+#
+# See http://freshshell.com/readme for documentation.
+
+# auto-update fresh
+fresh freshshell/fresh bin/fresh --bin
+
+# basic configuration files
+fresh config/\* --file
+fresh nvim/init.vim --file=~/.config/nvim/init.vim
+
+# tmux plugins
+fresh tmux-plugins/tmux-resurrect . --file=~/.tmux/plugins/tmux-resurrect/
+fresh tmux-plugins/tmux-continuum . --file=~/.tmux/plugins/tmux-continuum/
+fresh tmux-plugins/tmux-sensible . --file=~/.tmux/plugins/tmux-sensible/
+fresh tmux-plugins/tpm . --file=~/.tmux/plugins/tpm/
