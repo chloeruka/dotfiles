@@ -19,6 +19,6 @@
 [submodule "vim/pack/ruka/start/vim-obsession"]
 	path = vim/pack/ruka/start/vim-obsession
 	url = git://github.com/tpope/vim-obsession.git
-[submodule "nvim/vim-go"]
-	path = nvim/vim-go
+[submodule "nvim/plugins/vim-go"]
+	path = nvim/plugins/vim-go
 	url = https://github.com/fatih/vim-go.git
