@@ -11,6 +11,8 @@
     ~/.vimrc: vimrc
     ~/.tmux: tmux
     ~/.fzf.zsh: fzf.zsh
+    ~/.config/nvim/init.vim: nvim/init.vim
+    .local/share/nvim/site/pack/plugins/start: nvim/plugins
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
