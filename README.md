@@ -2,6 +2,7 @@
 
 ## Dependencies
 - Neovim node client (for [nvim-typescript](https://github.com/mhartington/nvim-typescript)) `npm install -g neovim`
+- pynvim (sigh) `pip3 install --user --upgrade pynvim`
 - iterm2 and a patched font
 
 ## Installation
