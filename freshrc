@@ -14,6 +14,7 @@ fresh freshshell/fresh bin/fresh --bin
 # basic configuration files
 fresh config/\* --file
 fresh nvim/init.vim --file=~/.config/nvim/init.vim
+fresh nvim/coc-settings.json --file=~/.config/nvim/coc-settings.json
 
 # tmux plugins
 fresh tmux-plugins/tmux-resurrect . --file=~/.tmux/plugins/tmux-resurrect/
