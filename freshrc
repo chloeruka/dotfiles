@@ -23,6 +23,5 @@ fresh tmux-plugins/tmux-sensible . --file=~/.tmux/plugins/tmux-sensible/
 fresh tmux-plugins/tpm . --file=~/.tmux/plugins/tpm/
 
 # nvim plugins
-fresh fatih/vim-go . --file=~/.local/share/nvim/site/pack/plugins/start/vim-go/
 fresh junegunn/vim-plug plug.vim --file=~/.local/share/nvim/site/autoload/plug.vim
 
