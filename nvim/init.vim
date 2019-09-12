@@ -4,6 +4,9 @@ call plug#begin('~/.vim/plugged')
 " code completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" typescript/js syntax highlighting
+Plug 'HerringtonDarkholme/yats.vim'
+
 " fzf (fuzzy find) extension - sourced frome homebrew
 Plug '/usr/local/opt/fzf'
 
