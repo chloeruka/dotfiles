@@ -13,7 +13,7 @@ fresh
 ## nvim configuration
 - Add plugins as needed for languages:
 ```
-:CocInstall coc-tsserver coc-json
+:CocInstall coc-tsserver coc-json coc-snippets
 ```
 
 ## TODO
