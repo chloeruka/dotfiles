@@ -83,7 +83,8 @@ set wrap "wrap lines
 "let g:airline_theme='deus'
 colorscheme nord
 
-
+" highlight cursor line
+set cursorline
 
 ""
 "" COC PLUGIN SETTINGS
