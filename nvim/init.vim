@@ -1,3 +1,7 @@
+""
+"" VIM PLUGINS
+""
+
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
@@ -7,11 +11,16 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " typescript/js syntax highlighting
 Plug 'HerringtonDarkholme/yats.vim'
 
-" fzf (fuzzy find) extension - sourced frome homebrew
+" fzf (fuzzy find) extension - fzf must be installed in homebrew
 Plug '/usr/local/opt/fzf'
+
+" theming/powerline for tmux and nvim
+Plug 'vim-airline/vim-airline'
+Plug 'edkolev/tmuxline.vim'
 
 " Initialize plugin system
 call plug#end()
+" run :PlugInstall inside nvim to install
 
 ""
 "" GENERAL OPTIONS
@@ -70,8 +79,6 @@ set wrap "wrap lines
 ""
 " make line numbers blue instead of default
 highlight LineNr ctermfg=blue
-
-
 
 ""
 "" COC PLUGIN SETTINGS

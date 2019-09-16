@@ -22,6 +22,9 @@ fresh tmux-plugins/tmux-continuum . --file=~/.tmux/plugins/tmux-continuum/
 fresh tmux-plugins/tmux-sensible . --file=~/.tmux/plugins/tmux-sensible/
 fresh tmux-plugins/tpm . --file=~/.tmux/plugins/tpm/
 
+# tmux theme
+fresh tmux/tmuxline --file=~/.tmux.conf
+
 # nvim plugins
 fresh junegunn/vim-plug plug.vim --file=~/.local/share/nvim/site/autoload/plug.vim
 
