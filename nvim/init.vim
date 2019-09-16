@@ -16,6 +16,8 @@ Plug '/usr/local/opt/fzf'
 
 " theming/powerline for tmux and nvim
 Plug 'vim-airline/vim-airline'
+" Additional themes: Plug 'vim-airline/vim-airline-themes'
+Plug 'arcticicestudio/nord-vim'
 Plug 'edkolev/tmuxline.vim'
 
 " Initialize plugin system
@@ -62,7 +64,7 @@ set noswapfile
 
 ""
 "" FORMATTING SETTINGS
-"" 
+""
 
 set smarttab
 
@@ -78,7 +80,8 @@ set wrap "wrap lines
 "" THEME SETTINGS
 ""
 " make line numbers blue instead of default
-highlight LineNr ctermfg=blue
+" highlight LineNr ctermfg=blue
+colorscheme nord
 
 ""
 "" COC PLUGIN SETTINGS
@@ -213,3 +216,4 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " fix go imports on save
 autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+
