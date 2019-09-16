@@ -81,6 +81,7 @@ set wrap "wrap lines
 "" THEME SETTINGS
 ""
 "let g:airline_theme='deus'
+set showtabline=2 " always show tabline
 colorscheme nord
 
 " highlight cursor line
