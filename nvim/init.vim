@@ -15,8 +15,9 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug '/usr/local/opt/fzf'
 
 " theming/powerline for tmux and nvim
+Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
-" Additional themes: Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'arcticicestudio/nord-vim'
 Plug 'edkolev/tmuxline.vim'
 
@@ -79,9 +80,10 @@ set wrap "wrap lines
 ""
 "" THEME SETTINGS
 ""
-" make line numbers blue instead of default
-" highlight LineNr ctermfg=blue
+"let g:airline_theme='deus'
 colorscheme nord
+
+
 
 ""
 "" COC PLUGIN SETTINGS
