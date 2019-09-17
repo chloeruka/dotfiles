@@ -31,6 +31,7 @@ call plug#end()
 
 " set how many lines of history to remember
 set history=500
+set encoding=utf-8
 
 " mouse/scroll support
 set mouse=a
@@ -86,20 +87,22 @@ colorscheme nord
 
 " highlight cursor line
 set cursorline
+" let airline know we use a powerline font
+let g:airline_powerline_fonts = 1
 
 " configure tmuxline options
 let g:tmuxline_preset = {
-	\'a'           : '#S',
-	\'x'           : '#(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD)',
-	\'y'           : ['%Y-%m-%d', '%H:%M'],
-	\'z'           : '#h',
-	\'win'         : ['#I', '#W'],
-	\'cwin'        : ['#I', '#W'],
-    \'options'     : {
-        \'status-justify': 'left'},
-    \'win_options' : {
-		\'window-status-activity-attr': 'none'}
-    \}
+  \'a'           : '#S',
+  \'x'           : '#(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD)',
+  \'y'           : ['%Y-%m-%d', '%H:%M'],
+  \'z'           : '#h',
+  \'win'         : ['#I', '#W'],
+  \'cwin'        : ['#I', '#W'],
+  \'options'     : {
+     \'status-justify': 'left'},
+  \'win_options' : {
+     \'window-status-activity-attr': 'none'}
+  \}
 
 ""
 "" COC PLUGIN SETTINGS
