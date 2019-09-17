@@ -87,6 +87,20 @@ colorscheme nord
 " highlight cursor line
 set cursorline
 
+" configure tmuxline options
+let g:tmuxline_preset = {
+	\'a'           : '#S',
+	\'x'           : '#(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD)',
+	\'y'           : ['%Y-%m-%d', '%H:%M'],
+	\'z'           : '#h',
+	\'win'         : ['#I', '#W'],
+	\'cwin'        : ['#I', '#W'],
+    \'options'     : {
+        \'status-justify': 'left'},
+    \'win_options' : {
+		\'window-status-activity-attr': 'none'}
+    \}
+
 ""
 "" COC PLUGIN SETTINGS
 ""
