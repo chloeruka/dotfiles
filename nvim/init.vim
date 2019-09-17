@@ -86,9 +86,12 @@ set showtabline=2 " always show tabline
 colorscheme nord
 
 " highlight cursor line
+
 set cursorline
 " let airline know we use a powerline font
 let g:airline_powerline_fonts = 1
+" BUG: change dirty symbol away from emoji since it's broken for this font
+let g:airline_symbols['dirty'] = '~'
 
 " configure tmuxline options
 let g:tmuxline_preset = {
