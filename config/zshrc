@@ -10,6 +10,11 @@ export ZSH="/Users/chloe.hutchinson/.oh-my-zsh"
 export GITSTATUS_DIR="$ZSH/custom/plugins/gitstatus"
 source "$GITSTATUS_DIR/gitstatus.plugin.zsh"
 
+# Go development
+export GOPATH="${HOME}/go"
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
 # gnu utils
 PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 
