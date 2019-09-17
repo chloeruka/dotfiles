@@ -91,7 +91,10 @@ set cursorline
 " let airline know we use a powerline font
 let g:airline_powerline_fonts = 1
 " BUG: change dirty symbol away from emoji since it's broken for this font
-let g:airline_symbols['dirty'] = '~'
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.dirty = '~'
 
 " configure tmuxline options
 let g:tmuxline_preset = {

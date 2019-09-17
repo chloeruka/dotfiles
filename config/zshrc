@@ -57,7 +57,7 @@ SPACESHIP_PROMPT_ORDER=(
 
 SPACESHIP_RPROMPT_ORDER=(
   time
-  git_branch
+#  git_branch
   battery
 )
 
