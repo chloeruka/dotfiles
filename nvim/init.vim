@@ -51,6 +51,9 @@ let mapleader = ","
 " fast writing of files
 nmap <leader>w :w!<cr>
 
+" quick open files
+nnoremap <leader>o :FZF<cr>
+
 " split options to split in more intuitive directions
 set splitbelow
 set splitright
