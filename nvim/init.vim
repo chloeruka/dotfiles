@@ -93,6 +93,8 @@ colorscheme nord
 set cursorline
 " let airline know we use a powerline font
 let g:airline_powerline_fonts = 1
+" enable tabline
+let g:airline#extensions#tabline#enabled = 1
 " BUG: change dirty symbol away from emoji since it's broken for this font
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
