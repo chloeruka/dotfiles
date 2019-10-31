@@ -6,9 +6,9 @@ source ~/.fresh/build/shell.sh
 export FRESH_LOCAL="$HOME/dotfiles"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/chloe.hutchinson/.oh-my-zsh"
-export GITSTATUS_DIR="$ZSH/custom/plugins/gitstatus"
-source "$GITSTATUS_DIR/gitstatus.plugin.zsh"
+#export ZSH="/Users/chloe.hutchinson/.oh-my-zsh"
+#export GITSTATUS_DIR="$ZSH/custom/plugins/gitstatus"
+#source "$GITSTATUS_DIR/gitstatus.plugin.zsh"
 
 # Go development
 export GOPATH="${HOME}/go"
@@ -138,7 +138,8 @@ SPACESHIP_BATTERY_THRESHOLD=30
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-source $ZSH/oh-my-zsh.sh
+#source $ZSH/oh-my-zsh.sh
+eval "$(starship init zsh)"
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # User configuration
@@ -183,8 +184,8 @@ bindkey "^X^_" redo
 
 
 # Set Spaceship ZSH as a prompt
-autoload -U promptinit; promptinit
-prompt spaceship
+#autoload -U promptinit; promptinit
+#prompt spaceship
 
 # macros
 gup='git fetch --prune && git rebase --autostash FETCH_HEAD'
