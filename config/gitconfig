@@ -6,3 +6,7 @@
 	preloadIndex = true
 [alias]
 	l = !git --no-pager log --oneline $(git merge-base --fork-point master)..
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
