@@ -249,3 +249,7 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " fix go imports on save
 autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 
+" use an undo file
+set undofile
+" set a directory to store the undo history
+set undodir=~/.config/nvim/undofiles/
