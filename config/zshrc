@@ -74,9 +74,9 @@ SPACESHIP_RPROMPT_ORDER=(
 #SPACESHIP_CHAR_SUFFIX=" "
 SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_PROMPT_SEPARATE_LINE=false
-#SPACESHIP_AWS_VAULT_SYMBOL=$'\uF270 ' 
+#SPACESHIP_AWS_VAULT_SYMBOL=$'\uF270 '
 SPACESHIP_GIT_BRANCH_COLOR="green"
-SPACESHIP_GIT_BRANCH_PREFIX=" " 
+SPACESHIP_GIT_BRANCH_PREFIX=" "
 SPACESHIP_GIT_BRANCH_SUFFIX=""
 SPACESHIP_TIME_PREFIX=""
 SPACESHIP_TIME_SHOW=true
@@ -174,7 +174,7 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-# 
+#
 # Change hexcodes for iterm bindings
 # change hex 0x15 to delete everything to the left of the cursor rather than the whole line:
 bindkey "^U" backward-kill-line
@@ -192,7 +192,7 @@ bindkey "^X^_" redo
 
 # macros
 gup='git fetch --prune && git rebase --autostash FETCH_HEAD'
-gd='git l' 
+gd='git l'
 
 # used for autocomplete wd
 gh() { cd ~/github/$1; }
@@ -206,6 +206,9 @@ export FZF_DEFAULT_COMMAND='fd --type f --exclude .git'
 
 # Load Git completion
 zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
+
+# better completion (source: https://stackoverflow.com/a/24237590)
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 fpath=(~/.zsh $fpath)
 
 autoload -Uz compinit && compinit
