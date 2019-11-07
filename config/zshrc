@@ -194,9 +194,9 @@ bindkey "^X^_" redo
 gup='git fetch --prune && git rebase --autostash FETCH_HEAD'
 gd='git l' 
 
-# used for autocomplete ca
-ca() { cd ~/cultureamp/$1; }
-compctl -W ~/cultureamp/ -/ ca
+# used for autocomplete wd
+gh() { cd ~/github/$1; }
+compctl -W ~/github/ -/ gh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
