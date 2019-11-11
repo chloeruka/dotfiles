@@ -774,7 +774,7 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1025 1072 1460 1040 0 900 2560 1417 </string>
+	<string>537 106 812 615 0 0 1440 877 </string>
 	<key>NeverWarnAboutOverrides</key>
 	<true/>
 	<key>NeverWarnAboutOverrides_selection</key>
@@ -1050,7 +1050,7 @@
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>180</integer>
+			<integer>100</integer>
 			<key>Command</key>
 			<string>/bin/zsh</string>
 			<key>Cursor Color</key>
@@ -1509,7 +1509,7 @@
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
-			<integer>60</integer>
+			<integer>36</integer>
 			<key>Screen</key>
 			<integer>-2</integer>
 			<key>Scrollback Lines</key>
@@ -1617,7 +1617,7 @@
 	<key>NoSyncLastTipTime</key>
 	<real>594261551.46609294</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>14</integer>
+	<integer>15</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
