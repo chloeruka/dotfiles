@@ -12,6 +12,8 @@ export FRESH_LOCAL="$HOME/dotfiles"
 
 # vi bindings
 bindkey -v
+# fix inability to backspace after swapping to normal mode (weird gremlin)
+bindkey "^?" backward-delete-char
 
 # Go development
 export GOPATH="${HOME}/go"
