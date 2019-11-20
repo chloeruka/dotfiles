@@ -253,3 +253,5 @@ autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeIm
 set undofile
 " set a directory to store the undo history
 set undodir=~/.config/nvim/undofiles/
+
+let g:go_fmt_command = "goimports"

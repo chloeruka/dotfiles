@@ -22,6 +22,7 @@ export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 # Ruby development
 eval "$(rbenv init -)"
+export BUNDLER_EDITOR="nvim"
 
 # gnu utils
 PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
