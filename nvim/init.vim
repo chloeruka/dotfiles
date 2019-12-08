@@ -25,6 +25,9 @@ Plug 'edkolev/tmuxline.vim'
 call plug#end()
 " run :PlugInstall inside nvim to install
 
+" Ruby CoC integ!
+let g:coc_global_extensions = ['coc-solargraph']
+
 ""
 "" GENERAL OPTIONS
 ""
