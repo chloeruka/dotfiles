@@ -1,6 +1,6 @@
 [user]
 	name = Chloe Hutchinson
-	email = chloe.hutchinson@cultureamp.com
+	email = chloe@buildkite.com
 [core]
 	excludesfile = /Users/chloe.hutchinson/.gitignore_global
 	preloadIndex = true
