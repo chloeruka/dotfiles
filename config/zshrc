@@ -82,7 +82,19 @@ gup='git fetch --prune && git rebase --autostash FETCH_HEAD'
 gd='git l'
 
 # used for autocomplete wd
-gh() { cd ~/github/$1; }
+gh() {
+	if [ ! -d ~/github/$1 ]; then
+		cd ~/github
+		if git ls-remote "git@github.com:buildkite/$1.git" -q; then
+			git clone "git@github.com:buildkite/$1.git"
+		elif git ls-remote "git@github.com:chloeruka/$1.git" -q; then
+			git clone "git@github.com:chloeruka/$1.git"
+		else
+			echo "Unable to find repository \"$1\" in either github.com/buildkite OR github.com/chloeruka"
+		fi
+	fi
+	cd ~/github/$1
+}
 compctl -W ~/github/ -/ gh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
