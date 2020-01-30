@@ -13,6 +13,7 @@ Plug 'HerringtonDarkholme/yats.vim'
 
 " fzf (fuzzy find) extension - fzf must be installed in homebrew
 Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 
 " theming/powerline for tmux and nvim
 Plug 'tpope/vim-fugitive'

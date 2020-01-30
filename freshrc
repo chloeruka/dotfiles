@@ -28,3 +28,12 @@ fresh tmux/tmuxline --file=~/.tmux.conf
 # nvim plugins
 fresh junegunn/vim-plug plug.vim --file=~/.local/share/nvim/site/autoload/plug.vim
 
+fresh_after_build() {
+	echo "Installing neovim plugins..."
+	nvim --headless +'PlugInstall --sync' +qa
+	echo "Done!"
+
+	echo "Installing CoC extensions..."
+	nvim --headless +'CocInstall coc-tsserver coc-json coc-snippets coc-solargraph' +qa
+	echo "Done!"
+}
