@@ -1,14 +1,6 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # fresh configuration
 source ~/.fresh/build/shell.sh
 export FRESH_LOCAL="$HOME/dotfiles"
-
-# Path to your oh-my-zsh installation.
-#export ZSH="/Users/chloe.hutchinson/.oh-my-zsh"
-#export GITSTATUS_DIR="$ZSH/custom/plugins/gitstatus"
-#source "$GITSTATUS_DIR/gitstatus.plugin.zsh"
 
 # vi bindings
 bindkey -v
@@ -36,14 +28,6 @@ bindkey "^U" backward-kill-line
 
 # add redo
 bindkey "^X^_" redo
-
-# startup commands
-#tmux
-
-
-# Set Spaceship ZSH as a prompt
-#autoload -U promptinit; promptinit
-#prompt spaceship
 
 # macros
 gup='git fetch --prune && git rebase --autostash FETCH_HEAD'
