@@ -104,6 +104,7 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 let g:airline_symbols.dirty = '~'
+let g:airline_skip_empty_sections = 1
 
 " configure tmuxline options
 let g:tmuxline_preset = {
