@@ -57,6 +57,14 @@ nmap <leader>w :w!<cr>
 
 " quick open files
 nnoremap <leader>o :FZF<cr>
+nnoremap <leader>O :Rg<cr>
+
+" hide statusline during fzf
+if has('nvim') && !exists('g:fzf_layout')
+  autocmd! FileType fzf
+  autocmd  FileType fzf set laststatus=0 noshowmode noruler
+    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+endif
 
 " split options to split in more intuitive directions
 set splitbelow
