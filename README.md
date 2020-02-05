@@ -13,5 +13,13 @@ zsh
 fresh
 ```
 
+### AWS-CLI
+For V2:
+```sh
+curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-macos.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+```
+
 ## TODO
 - homebrew brewfile
