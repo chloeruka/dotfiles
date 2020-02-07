@@ -2,6 +2,7 @@
 
 ## Dependencies
 - iterm2 and a patched font
+- [fresh](https://github.com/freshshell/fresh)
 
 ## Useful commands
 `tmux new-session -A -s main`
