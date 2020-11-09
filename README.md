@@ -1,7 +1,7 @@
 # Dotfiles
 
 ## Dependencies
-- iterm2 and a patched font
+- A patched font (e.g. Nerd Fonts)
 - [fresh](https://github.com/freshshell/fresh)
 
 ## Useful commands
@@ -14,13 +14,7 @@ zsh
 fresh
 ```
 
-### AWS-CLI
-For V2:
-```sh
-curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-macos.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
-```
-
 ## TODO
-- homebrew brewfile
+ - [ ] Ubuntu compatibility
+ - [ ] OS aware installation
+ - [ ] Homebrew brewfile
