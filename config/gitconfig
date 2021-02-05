@@ -11,5 +11,5 @@
 	ci = commit
 	st = status
     co-pr = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
-    to-main = !sh -c'git branch -m master main && git fetch origin && git branch -u origin/main main' -
+    to-main = !sh -c 'git branch -m master main && git fetch origin && git branch -u origin/main main' -
 
