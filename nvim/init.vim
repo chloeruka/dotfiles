@@ -8,8 +8,9 @@ call plug#begin('~/.vim/plugged')
 " code completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" typescript/js syntax highlighting
-Plug 'HerringtonDarkholme/yats.vim'
+" syntax highlighters
+Plug 'HerringtonDarkholme/yats.vim' " typescript/js
+Plug 'pprovost/vim-ps1' " Powershell
 
 " fzf (fuzzy find) extension - fzf must be installed in homebrew
 Plug '/usr/local/opt/fzf'
@@ -83,10 +84,10 @@ set noswapfile
 "" FORMATTING SETTINGS
 ""
 
-set smarttab
+set expandtab
 
 " 1 tab == 4 spaces
-set shiftwidth=4
+set shiftwidth=2
 set tabstop=4
 
 set ai "auto indent

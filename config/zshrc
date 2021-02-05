@@ -16,7 +16,7 @@ export GOROOT="$(brew --prefix golang)/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 # Ruby development
-eval "$(rbenv init -)"
+#eval "$(rbenv init -)"
 export BUNDLER_EDITOR="nvim"
 
 # gnu utils
