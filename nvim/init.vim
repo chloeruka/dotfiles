@@ -14,7 +14,7 @@ Plug 'pprovost/vim-ps1' " Powershell
 
 " fzf (fuzzy find) extension - fzf must be installed in homebrew
 Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 " theming/powerline for tmux and nvim
 Plug 'tpope/vim-fugitive'
@@ -22,6 +22,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'arcticicestudio/nord-vim'
 Plug 'edkolev/tmuxline.vim'
+Plug 'ryanoasis/vim-devicons'
 
 " Initialize plugin system
 call plug#end()
@@ -36,7 +37,7 @@ let g:coc_global_extensions = ['coc-solargraph']
 
 " set how many lines of history to remember
 set history=500
-set encoding=utf-8
+set encoding=UTF-8
 
 " mouse/scroll support
 set mouse=a
@@ -57,8 +58,54 @@ let mapleader = ","
 nmap <leader>w :w!<cr>
 
 " quick open files
-nnoremap <leader>o :FZF<cr>
-nnoremap <leader>O :Rg<cr>
+
+" FZF/RipGrep
+nnoremap <leader>O :rg<cr>
+" courtesy of https://gist.github.com/danmikita/d855174385b3059cd6bc399ad799555e
+nnorema <silent> <leader>o :call Fzf_dev()<CR>
+
+" ripgrep
+if executable('rg')
+  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+  set grepprg=rg\ --vimgrep
+  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+endif
+
+" Files + devicons
+function! Fzf_dev()
+  let l:fzf_files_options = '--preview "bat --theme="OneHalfDark" --style=numbers,changes --color always {2..-1} | head -'.&lines.'"'
+
+  function! s:files()
+    let l:files = split(system($FZF_DEFAULT_COMMAND), '\n')
+    return s:prepend_icon(l:files)
+  endfunction
+
+  function! s:prepend_icon(candidates)
+    let l:result = []
+    for l:candidate in a:candidates
+      let l:filename = fnamemodify(l:candidate, ':p:t')
+      let l:icon = WebDevIconsGetFileTypeSymbol(l:filename, isdirectory(l:filename))
+      call add(l:result, printf('%s %s', l:icon, l:candidate))
+    endfor
+
+    return l:result
+  endfunction
+
+  function! s:edit_file(item)
+    let l:pos = stridx(a:item, ' ')
+    let l:file_path = a:item[pos+1:-1]
+    execute 'silent e' l:file_path
+  endfunction
+
+  call fzf#run({
+        \ 'source': <sid>files(),
+        \ 'sink':   function('s:edit_file'),
+        \ 'options': '-m ' . l:fzf_files_options,
+        \ 'window': { 'width': 0.9, 'height': 0.6 } })
+endfunction
+
+" open fzf in a window
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
 " hide statusline during fzf
 if has('nvim') && !exists('g:fzf_layout')
@@ -113,11 +160,7 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 let g:airline_symbols.dirty = '~'
-let g:airline_skip_empty_sections = 1
-
-" configure tmuxline options
-let g:tmuxline_preset = {
-  \'a'           : '#S',
+let g:airline_skip_empty_sections = 1 " configure tmuxline options let g:tmuxline_preset = { \'a'           : '#S',
   \'x'           : '#(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD)',
   \'y'           : ['%Y-%m-%d', '%H:%M'],
   \'z'           : '#h',
