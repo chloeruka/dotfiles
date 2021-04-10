@@ -10,6 +10,9 @@ bindkey "^?" backward-delete-char
 # aws-vault configuration https://github.com/99designs/aws-vault/blob/master/USAGE.md
 export AWS_VAULT_KEYCHAIN_NAME="login" # use the macos one for less prompts
 
+# aws regional endpoints
+export AWS_STS_REGIONAL_ENDPOINTS=regional
+
 # Go development
 export GOPATH="${HOME}/go"
 export GOROOT="$(brew --prefix golang)/libexec"

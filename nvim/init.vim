@@ -11,10 +11,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " syntax highlighters
 Plug 'HerringtonDarkholme/yats.vim' " typescript/js
 Plug 'pprovost/vim-ps1' " Powershell
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " fzf (fuzzy find) extension - fzf must be installed in homebrew
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'jremmen/vim-ripgrep'
 
 " theming/powerline for tmux and nvim
 Plug 'tpope/vim-fugitive'
@@ -60,7 +62,7 @@ nmap <leader>w :w!<cr>
 " quick open files
 
 " FZF/RipGrep
-nnoremap <leader>O :rg<cr>
+nnoremap <leader>O :grep<cr>
 " courtesy of https://gist.github.com/danmikita/d855174385b3059cd6bc399ad799555e
 nnorema <silent> <leader>o :call Fzf_dev()<CR>
 
@@ -312,3 +314,4 @@ set undofile
 set undodir=~/.config/nvim/undofiles/
 
 let g:go_fmt_command = "goimports"
+
