@@ -2,6 +2,9 @@
 source ~/.fresh/build/shell.sh
 export FRESH_LOCAL="$HOME/dotfiles"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
 # vi bindings
 bindkey -v
 # fix inability to backspace after swapping to normal mode (weird gremlin)
