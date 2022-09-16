@@ -1,0 +1,6 @@
+[default]
+output=json
+
+[profile chloeruka]
+region=us-west-2
+mfa_serial=arn:aws:iam::816604515500:mfa/chloeruka

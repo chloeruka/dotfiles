@@ -10,8 +10,8 @@ right_format = """$all"""
 continuation_prompt = "▶▶"
 
 [character]
-success_symbol = "[➜](bold green) "
-error_symbol = "[✗](bold red) "
+success_symbol = "[>](bold green) "
+error_symbol = "[Ⅹ](bold red) "
 
 [directory]
 truncation_length = 8

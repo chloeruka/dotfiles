@@ -1,0 +1,48 @@
+# Yabai configuration file https://github.com/koekeishiya/yabai/wiki/Configuration
+#
+# for this to work you must configure sudo such that
+# it will be able to run the command without password
+
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
+#
+# Generic Yabai configuration
+#
+yabai -m space 1 --label external
+yabai -m space 2 --label laptop
+
+# bsp or float (default: bsp)
+yabai -m config layout bsp
+
+# account for Spacebar being on the top of each screen
+SPACEBAR_HEIGHT=26
+yabai -m config external_bar all:$SPACEBAR_HEIGHT:0o
+
+# hokey mouse stuff
+yabai -m config focus_follows_mouse autoraise
+yabai -m config mouse_follows_focus on
+
+# Set all padding and gaps to 20pt (default: 0)
+yabai -m config top_padding    20
+yabai -m config bottom_padding 20
+yabai -m config left_padding   20
+yabai -m config right_padding  20
+yabai -m config window_gap     15
+
+# Window borders (effectively squares things on MacOS)
+yabai -m config window_border on
+yabai -m config window_border_width 4
+# 0xFFA676FF # purple
+# 0xFFF806FA # pink purple
+yabai -m config active_window_border_color 0xFF6CD0FC # lt blue
+yabai -m config normal_window_border_color 0xCC505354 # gray
+
+yabai -m config window_shadow float
+
+# Rules for specific apps for allowing floating
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^Safari Preferences$" manage=off
+yabai -m rule --add app="^Spotify$" manage=on
+yabai -m rule --add app="^Activity Monitor$" manage=on
+yabai -m rule --add app="^Font Book$" manage=off

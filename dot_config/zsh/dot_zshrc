@@ -1,0 +1,169 @@
+#test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+#
+# Work settings
+#
+
+# configure vault token against file # TODO relocate to XDG_CONFIG_HOME
+#export VAULT_TOKEN=
+#export VAULT_ADDR=
+
+# configure elastic flavortown
+#export BUILDKITE_TOKEN=""
+#export BUILDKITE_WEBHOOK_TOKEN=""
+
+# Fix python forking behaviour for Ansible
+# https://github.com/ansible/ansible/issues/32499
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+# JJBB alias (Jenkins job builder builder)
+alias jjbb="docker run --rm -e VAULT_TOKEN -e HOME=/jjbb -v $(pwd):/jjbb -w /jjbb --network=host docker.elastic.co/infra/jjbb"
+
+# Set bat theme to be vaguely consistent
+export BAT_THEME="base16"
+
+#
+# General configuration
+#
+
+# Git needs to know this is a GPG capable TTY for commit signing
+export GPG_TTY=$(tty)
+
+#use "code fileorfolder" to open with vscode
+code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+
+# Style EXA's colours in a less aggressively yellow and bright way
+export EXA_COLORS="ur=34:gr=34:tr=34:sn=34:sb=34:uu=36;;01:un=34"
+
+alias fuck='sudo $(fc -ln -1)'
+
+#Initiate starship
+eval "$(starship init zsh)"
+
+# ZSH auto completion init (must be after compinit but before autosuggestions)
+autoload -Uz compinit && compinit
+
+# ZSH replace autocomplete with FZF (toggle-fzf-tab)
+source $XDG_DATA_HOME/zsh-plugins/fzf-tab.plugin.zsh
+
+#ZSH Autosuggestions 
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+fpath=(${XDG_CONFIG_HOME}/zsh/completions $fpath)
+
+# Node version manager completions
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# Source gcloud sdk and completions
+source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+
+# Calls `nvm use` automatically in a dir with .nvmrc
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
+# used for autocompleting 'gh' command
+gh() {
+	if [ ! -d ~/git/$1/$2 ]; then
+		cd ~/git
+		if git ls-remote "git@github.com:$1/$2.git" -q; then
+			git clone "git@github.com:$1/$2.git"
+		else
+			echo "Unable to find repository \"$1/$2\" on github.com"
+		fi
+	fi
+	cd ~/git/$1/$2
+}
+compctl -W ~/git/ -/ gh
+
+[ -f "${XDG_CONFIG_HOME-}/zsh/fzf.zsh" ] && source "${XDG_CONFIG_HOME-}/zsh/fzf.zsh"
+
+export FZF_TMUX=1
+export FZF_TMUX=20%
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+
+# Load Git completion
+#zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
+autoload -Uz compinit && compinit
+
+# better file/dir completion (source: https://stackoverflow.com/a/24237590)
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+fpath=(~/.zsh $fpath)
+
+# gifs bc i like them
+video-url-from-tweet() {
+    if [ "$1" ]; then
+        url=$1
+    else
+        echo "Must provide a url"
+        return 1
+    fi
+
+    curl --silent $url |\
+        # should find the <meta> tag with content="<thumbnail url>"
+        (grep -m1 "tweet_video_thumb" ||\
+          echo "Could not find video" && return 1) |\
+
+        # from: <meta property="og:image" content="https://pbs.twimg.com/tweet_video_thumb/xxxxxxxxxx.jpg">
+        # to: https://pbs.twimg.com/tweet_video_thumb/xxxxxxxxxx.jpg
+        cut -d '"' -f 4 |\
+
+        # from: https://pbs.twimg.com/tweet_video_thumb/xxxxxxxxxx.jpg
+        # to: https://video.twimg.com/tweet_video/xxxxxxxxxx.mp4
+        sed 's/.jpg/.mp4/g' |\
+        sed 's/pbs.twimg.com\/tweet_video_thumb/video.twimg.com\/tweet_video/g'
+}
+video-from-tweet() {
+    if [ "$1" ]; then
+        url=$1
+    else
+        echo "Must provide a url"
+        return 1
+    fi
+    curl $(video-url-from-tweet $url)
+}
+video-to-gif() {
+    # derived from https://engineering.giphy.com/how-to-make-gifs-with-ffmpeg/
+    if [ "$2" ]; then
+        input=$1
+        output=$2
+    else
+        echo "Must provide an input file and output file"
+        return 1
+    fi
+
+    ffmpeg -i $input \
+           -filter_complex "[0:v] split [a][b];[a] palettegen [p];[b][p] paletteuse" \
+           -f gif \
+           $output
+}
+gif-from-tweet() {
+    if [ "$2" ]; then
+        url=$1
+        output=$2
+    else
+        echo "Must provide a url and an output filename"
+        return 1
+    fi
+    video-from-tweet $url | video-to-gif - $output
+}

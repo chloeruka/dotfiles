@@ -1,4 +1,11 @@
 {
+  "coc.preferences.hoverTarget":"float",
+  "coc.preferences.colorSupport": true,
+  "coc.preferences.bracketEnterImprove": true,
+  "suggest.noselect": false,
+  "diagnostic.locationlist": false,
+  "rust-analyzer.diagnostics.enable": true,
+  "rust-analyzer.inlayHints.chainingHints": true,
   "languageserver": {
     "golang": {
       "command": "gopls",
