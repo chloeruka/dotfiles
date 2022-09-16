@@ -1,20 +1,29 @@
-# Dotfiles
+# My Dotfiles
 
-## Dependencies
-- A patched font (e.g. Nerd Fonts)
-- [fresh](https://github.com/freshshell/fresh)
-
-## Useful commands
-`tmux new-session -A -s main`
+Dotfile manager: [Chezmoi](https://www.chezmoi.io)
+Package manager: [Homebrew](https://brew.sh)
+Terminal: [iTerm2](http://iterm2.com)
+Editor: [Neovim](https://neovim.io)
+Prompt: [Starship](https://starship.rs)
 
 ## Installation
+
+Chezmoi one-liner:
+
 ```sh
-ln -s ~/dotfiles/config/zshrc ~/.zshrc
-zsh
-fresh
+sh -c "$(curl -fsLS https://chezmoi.io/get)" -- init --apply chloeruka
 ```
 
-## TODO
- - [ ] Ubuntu compatibility
- - [ ] OS aware installation
- - [ ] Homebrew brewfile
+Alternatively, install Chezmoi via [Homebrew](https://brew.sh):
+
+```sh
+brew install chezmoi
+chezmoi init chloeruka --apply
+```
+
+## Useful commands
+
+```sh
+tmux new-session -A -s main
+```
+

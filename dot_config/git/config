@@ -1,10 +1,20 @@
 [user]
+	signingkey = 3F81F02730CC0790
+	email = chloe.hutchinson@elastic.co
 	name = Chloe Hutchinson
-	email = chloe@buildkite.com
+[commit]
+	gpgsign = true
 [core]
-	excludesfile = /Users/chloe.hutchinson/.gitignore_global
-	preloadIndex = true
+	editor = nvim
+    excludesFile = $XDG_CONFIG_HOME/git/gitignore_global
+[pull]
+	rebase = true
+[push]
+    autoSetupRemote = true
+[init]
+    defaultBranch = main
 [alias]
+    pr = "!f() { git fetch origin pull/$1/head:pull_$1; git checkout pull_$1; }; f"
 	l = !git --no-pager log --oneline $(git merge-base --fork-point $(git symbolic-ref --short HEAD))..
 	c = checkout
 	br = branch
@@ -12,7 +22,3 @@
 	st = status
     co-pr = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
     to-main = !sh -c 'git branch -m master main && git fetch origin && git branch -u origin/main main' -
-[pull]
-    rebase = true
-[init]
-    defaultBranch = main

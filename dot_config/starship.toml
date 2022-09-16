@@ -1,0 +1,29 @@
+format = """
+$character\
+$hostname\
+$directory\
+$localip\
+$shlvl\
+$username"""
+
+right_format = """$all"""
+continuation_prompt = "▶▶"
+
+[character]
+success_symbol = "[➜](bold green) "
+error_symbol = "[✗](bold red) "
+
+[directory]
+truncation_length = 8
+truncation_symbol= ".../"
+read_only = "🔒"
+
+[git_branch]
+symbol = "\ue0a0 "
+truncation_length = 25
+truncation_symbol = ".."
+
+[gcloud]
+format = "on [$symbol$active]($style) "
+# symbol = "\ue7b2 "
+
