@@ -1,8 +1,8 @@
-
-# basedir defaults, in case they're not already set up.
+# Set up basedir defaults in the event they aren't already configured
+# Note: use dot_config/zsh/dot_zshenv for configuring zsh environmnet
+#
+# Learn about the XDG base directory standard here:
 # http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
-
-export PATH="$PATH:/Users/ruka/.local/bin"
 
 if [[ -z "$XDG_DATA_HOME" ]]; then
 	export XDG_DATA_HOME="$HOME/.local/share"
@@ -31,4 +31,4 @@ export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
 export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
 
 ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-. "$HOME/.cargo/env"
+source "$ZDOTDIR/.zshenv"

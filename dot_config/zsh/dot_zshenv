@@ -1,0 +1,4 @@
+# Zsh environment
+
+export PATH="$PATH:/Users/ruka/.local/bin"
+source "$HOME/.cargo/env"
