@@ -18,6 +18,16 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 # JJBB alias (Jenkins job builder builder)
 alias jjbb="docker run --rm -e VAULT_TOKEN -e HOME=/jjbb -v $(pwd):/jjbb -w /jjbb --network=host docker.elastic.co/infra/jjbb"
+alias reload="exec zsh"
+
+# benchmark zsh startup
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
+
+# profiler for zsh
+zmodload zsh/zprof
 
 # Set bat theme to be vaguely consistent
 export BAT_THEME="base16"
@@ -52,35 +62,9 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 fpath=(${XDG_CONFIG_HOME}/zsh/completions $fpath)
 
-# Node version manager completions
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
 # Source gcloud sdk and completions
 source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
-
-# Calls `nvm use` automatically in a dir with .nvmrc
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
 
 # used for autocompleting 'gh' command
 gh() {
@@ -167,3 +151,10 @@ gif-from-tweet() {
     fi
     video-from-tweet $url | video-to-gif - $output
 }
+
+##### PLUGINS
+# source antidote
+source ${ZDOTDIR:-~}/.antidote/antidote.zsh
+
+# initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
+antidote load
