@@ -1,10 +1,10 @@
 # My Dotfiles
 
-Dotfile manager: [Chezmoi](https://www.chezmoi.io)
-Package manager: [Homebrew](https://brew.sh)
-Terminal: [iTerm2](http://iterm2.com)
-Editor: [Neovim](https://neovim.io)
-Prompt: [Starship](https://starship.rs)
+Dotfile manager: [Chezmoi](https://www.chezmoi.io)  
+Package manager: [Homebrew](https://brew.sh)  
+Terminal: [iTerm2](http://iterm2.com)  
+Editor: [Neovim](https://neovim.io)  
+Prompt: [Starship](https://starship.rs)  
 
 ## Installation
 

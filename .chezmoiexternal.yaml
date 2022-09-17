@@ -17,4 +17,10 @@
   type: "file"
   url: "https://github.com/lukechilds/zsh-nvm/raw/master/zsh-nvm.plugin.zsh"
   refreshPeriod: "168h"
+".local/share/zsh/plugins/fzf-tab":
+  exact: true
+  type: "archive"
+  url: "https://github.com/Aloxaf/fzf-tab/archive/refs/heads/master.zip"
+  refreshPeriod: "168h"
+  stripComponents: 1
 

@@ -1,4 +1,11 @@
 # Zsh environment
 
 export PATH="$PATH:/Users/ruka/.local/bin"
+
+# Faster nvm
+export NVM_LAZY_LOAD=true
+export NVM_AUTO_USE=true
+
+# cargo does this, for some reason
 source "$HOME/.cargo/env"
+
