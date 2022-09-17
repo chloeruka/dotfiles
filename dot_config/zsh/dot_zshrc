@@ -23,9 +23,6 @@ timezsh() {
 # profiler for zsh
 zmodload zsh/zprof
 
-# Set bat theme to be vaguely consistent
-export BAT_THEME="base16"
-
 #
 # General configuration
 #

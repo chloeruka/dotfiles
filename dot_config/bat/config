@@ -1,0 +1,5 @@
+# Show line numbers, Git modifications
+--style="numbers,changes,header,grid"
+
+# Use italic text on the terminal (not supported on all terminals)
+--italic-text=always
