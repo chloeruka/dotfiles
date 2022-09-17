@@ -152,9 +152,3 @@ gif-from-tweet() {
     video-from-tweet $url | video-to-gif - $output
 }
 
-##### PLUGINS
-# source antidote
-source ${ZDOTDIR:-~}/.antidote/antidote.zsh
-
-# initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
-antidote load
