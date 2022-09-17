@@ -22,9 +22,6 @@ $character"""
 continuation_prompt = " "
 add_newline = true
 
-[fill]
-symbol = " "
-
 [character]
 format = "$symbol "
 success_symbol = "[❯](purple)"
@@ -35,6 +32,9 @@ vicmd_symbol = "[❮](green)"
 truncation_length = 8
 truncation_symbol= ".../"
 read_only = "🔒"
+
+[fill]
+symbol = " "
 
 # Bracketed segments (as opposed to human strings)
 [aws]
