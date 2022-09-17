@@ -3,7 +3,7 @@
 ""
 
 " Specify a directory for plugins
-call plug#begin('~/.vim/plugged')
+call plug#begin("$XDG_DATA_HOME/nvim/plugged")
 
 " git, github and code support
 Plug 'tpope/vim-fugitive'
@@ -23,7 +23,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'jremmen/vim-ripgrep'
 
 " themes
-Plug 'folke/tokyonight.nvim'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 " vim and tmux powerlines
 Plug 'itchyny/lightline.vim'
@@ -37,9 +37,6 @@ call plug#end()
 
 syntax enable
 filetype plugin indent on
-
-" Ruby CoC integ!
-let g:coc_global_extensions = ['coc-solargraph']
 
 ""
 "" GENERAL OPTIONS
@@ -160,10 +157,19 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_italic_keywords = 0
-let g:tokyonight_transparent = 1
+autocmd VimEnter * call s:setup_theme()
+function! s:setup_theme() abort
+lua<<EOF
+require("tokyonight").setup({
+  style = "night",
+  transparent = true,
+  styles = {
+    keywords = { italic = false }
+  },
+})
+EOF
 colorscheme tokyonight " must run after tokyonight configuration
+endfunction
 
 let g:lightline = {
       \ 'colorscheme': 'tokyonight',
@@ -395,7 +401,7 @@ autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeIm
 " use an undo file
 set undofile
 " set a directory to store the undo history
-set undodir=~/.config/nvim/undofiles/
+set undodir="$XDG_CACHE_HOME/nvim/undofiles/"
 
 let g:go_fmt_command = "goimports"
 
