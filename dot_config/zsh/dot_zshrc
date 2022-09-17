@@ -1,9 +1,3 @@
-#test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-#
-# Work settings
-#
-
 # configure vault token against file # TODO relocate to XDG_CONFIG_HOME
 #export VAULT_TOKEN=
 #export VAULT_ADDR=

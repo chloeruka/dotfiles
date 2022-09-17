@@ -6,6 +6,7 @@
 call plug#begin("$XDG_DATA_HOME/nvim/plugged")
 
 " git, github and code support
+Plug 'alker0/chezmoi.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
