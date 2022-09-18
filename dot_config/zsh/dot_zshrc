@@ -6,10 +6,6 @@
 #export BUILDKITE_TOKEN=""
 #export BUILDKITE_WEBHOOK_TOKEN=""
 
-# Fix python forking behaviour for Ansible
-# https://github.com/ansible/ansible/issues/49207
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-
 # JJBB alias (Jenkins job builder builder)
 alias jjbb="docker run --rm -e VAULT_TOKEN -e HOME=/jjbb -v $(pwd):/jjbb -w /jjbb --network=host docker.elastic.co/infra/jjbb"
 alias reload="exec zsh"
