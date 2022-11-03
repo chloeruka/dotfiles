@@ -1,11 +1,3 @@
-# configure vault token against file # TODO relocate to XDG_CONFIG_HOME
-#export VAULT_TOKEN=
-#export VAULT_ADDR=
-
-# configure elastic flavortown
-#export BUILDKITE_TOKEN=""
-#export BUILDKITE_WEBHOOK_TOKEN=""
-
 # JJBB alias (Jenkins job builder builder)
 alias jjbb="docker run --rm -e VAULT_TOKEN -e HOME=/jjbb -v $(pwd):/jjbb -w /jjbb --network=host docker.elastic.co/infra/jjbb"
 alias reload="exec zsh"
@@ -21,6 +13,26 @@ zmodload zsh/zprof
 
 # Git needs to know this is a GPG capable TTY for commit signing
 export GPG_TTY=$(tty)
+
+# suss out vault tokens
+vault_token_file="$XDG_CACHE_HOME/zsh/vault_tokens"
+if [[ ! -f ${vault_token_file} ]]; then
+  cat << EOF > ${vault_token_file}
+export VAULT_TOKEN_PROD=$(VAULT_ADDR=https://secrets.elastic.co:8200 vault login -method github -token-only token="$GITHUB_TOKEN")
+export VAULT_TOKEN_CI_PROD=$(VAULT_ADDR=https://vault-ci-prod.elastic.dev vault login -method github -token-only token="$GITHUB_TOKEN")
+export VAULT_TOKEN_CI_TEST=$(VAULT_ADDR=https://vault-ci-test.elastic.dev vault login -method github -token-only token="$GITHUB_TOKEN")
+EOF
+fi
+
+source "$XDG_CACHE_HOME/zsh/vault_tokens"
+
+alias with-vault-prod="VAULT_ADDR=https://secrets.elastic.co:8200 VAULT_TOKEN=(echo \$VAULT_TOKEN_PROD)"
+alias with-vault-ci-prod="VAULT_ADDR=https://vault-ci-prod.elastic.dev VAULT_TOKEN=\$(echo \$VAULT_TOKEN_CI_PROD)"
+alias with-vault-ci-test="VAULT_ADDR=https://vault-ci-test.elastic.dev VAULT_TOKEN=\$(echo \$VAULT_TOKEN_CI_TEST)"
+
+# Fix python forking behaviour for Ansible
+# https://github.com/ansible/ansible/issues/49207
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 #use "code fileorfolder" to open with vscode
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}

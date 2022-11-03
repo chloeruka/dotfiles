@@ -12,5 +12,6 @@
       "rootPatterns": ["go.mod"],
       "filetypes": ["go"]
     }
-  }
+  },
+  "svelte.enable-ts-plugin": true
 }

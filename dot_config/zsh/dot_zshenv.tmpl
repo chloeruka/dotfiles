@@ -1,0 +1,25 @@
+# Zsh environment
+
+export PATH="$PATH:/Users/ruka/.local/bin"
+
+export BUILDKITE_API_TOKEN={{ (index (onepassword "ezh43qunxrh6devfelcjndtyje").fields 0).value }}
+export PAGERDUTY_USER_TOKEN={{ (index (onepassword "wmi5xj3gakhw2dd5gfpaafp6ku").fields 2).value }}
+export GITHUB_TOKEN={{ (index (onepassword "vv37aye57w7vheiutto2xpoazi").fields 2).value }}
+
+# Faster nvm
+export NVM_LAZY_LOAD=true
+export NVM_AUTO_USE=true
+
+export PATH="$PATH:/Users/ruka/.local/bin"
+
+# Faster nvm
+export NVM_LAZY_LOAD=true
+export NVM_AUTO_USE=true
+
+# Fix python forking behaviour for Ansible
+# https://github.com/ansible/ansible/issues/49207
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+# cargo does this, for some reason
+source "$HOME/.cargo/env"
+
