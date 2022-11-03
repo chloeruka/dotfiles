@@ -15,6 +15,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }  " Golang
 Plug 'pprovost/vim-ps1'                             " Powershell
 Plug 'HerringtonDarkholme/yats.vim'                 " TypeScript/JavaScript
+Plug 'leafOfTree/vim-svelte-plugin'                 " Svelte
 
 " fzf (fuzzy find) extension - fzf must be installed in homebrew
 Plug '/usr/local/opt/fzf'
