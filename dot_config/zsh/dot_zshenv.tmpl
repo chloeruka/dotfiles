@@ -3,6 +3,7 @@
 export PATH="$PATH:/Users/ruka/.local/bin"
 
 export BUILDKITE_API_TOKEN={{ (index (onepassword "ezh43qunxrh6devfelcjndtyje").fields 0).value }}
+export PAGERDUTY_TOKEN={{ (index (onepassword "wmi5xj3gakhw2dd5gfpaafp6ku").fields 2).value }}
 export PAGERDUTY_USER_TOKEN={{ (index (onepassword "wmi5xj3gakhw2dd5gfpaafp6ku").fields 2).value }}
 export GITHUB_TOKEN={{ (index (onepassword "vv37aye57w7vheiutto2xpoazi").fields 2).value }}
 
