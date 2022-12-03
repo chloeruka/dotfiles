@@ -1,0 +1,13 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+curl -SL https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.tar.gz | tar -xzvd -C ~/.local
+sudo apt install ripgrep
+
+{{ else if eq .chezmoi.os "darwin" -}}
+
+#!/bin/sh
+brew install neovim
+brew install ripgrep
+
+{{ end -}}
+
