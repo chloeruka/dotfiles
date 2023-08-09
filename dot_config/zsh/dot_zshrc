@@ -37,7 +37,7 @@ autoload -Uz compinit && compinit
 source "$XDG_DATA_HOME/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh"
 
 #ZSH Autosuggestions 
-source "$XDG_DATA_HOME/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$XDG_DATA_HOME/zsh/plugins/zsh-autosuggestions.zsh"
 
 # better file/dir completion (source: https://stackoverflow.com/a/24237590)
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'

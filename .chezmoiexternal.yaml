@@ -17,7 +17,7 @@
   url: "https://github.com/Aloxaf/fzf-tab/archive/refs/heads/master.zip"
   refreshPeriod: "168h"
   stripComponents: 1
-".local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh":
+".local/share/zsh/plugins/zsh-autosuggestions.zsh":
   type: "file"
   url: "https://github.com/zsh-users/zsh-autosuggestions/raw/master/zsh-autosuggestions.zsh"
   refreshPeriod: "168h"
