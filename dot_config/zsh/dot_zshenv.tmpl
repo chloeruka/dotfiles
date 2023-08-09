@@ -1,6 +1,8 @@
 # Zsh environment
 
-export PATH="$PATH:/Users/ruka/.local/bin"
+export PATH="/opt/nvim/bin:/Users/ruka/.local/bin:${PATH}"
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/ruka/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 export BUILDKITE_API_TOKEN={{ onepasswordRead "op://Work/bag4hkn5yw7eeiot4zqypd6roq/password" }}
 export PAGERDUTY_TOKEN={{ onepasswordRead "op://Work/PagerDuty automation API token/credential" }}
@@ -10,8 +12,6 @@ export GITHUB_TOKEN={{ onepasswordRead "op://Work/GitHub PAT Local Development R
 # Faster nvm
 export NVM_LAZY_LOAD=true
 export NVM_AUTO_USE=true
-
-export PATH="$PATH:/Users/ruka/.local/bin"
 
 # Faster nvm
 export NVM_LAZY_LOAD=true
