@@ -1,6 +1,6 @@
 [user]
 	signingkey = 3F81F02730CC0790
-	email = 30171259+chloeruka@users.noreply.github.com
+	email = chloe.hutchinson@elastic.co
 	name = Chloe Hutchinson
 [commit]
 	gpgsign = true
