@@ -46,8 +46,8 @@ fpath=(${XDG_CONFIG_HOME}/zsh/completions $fpath)
 source "$XDG_DATA_HOME/zsh/plugins/zsh-nvm.plugin.zsh"
 
 # Source gcloud sdk and completions
-source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+source "$HOME/google-cloud-sdk/completion.zsh.inc"
+source "$HOME/google-cloud-sdk/path.zsh.inc"
 
 # used for autocompleting 'gh' command
 gh() {
