@@ -1,5 +1,5 @@
 # Tmux plugin manager https://github.com/tmux-plugins/tpm
-".local/share/tmux/plugins/tpm":
+".config/tmux/plugins/tpm":
   exact: true
   type: "archive"
   url: "https://github.com/tmux-plugins/tpm/archive/refs/heads/master.zip"
