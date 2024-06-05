@@ -1,7 +1,3 @@
-[diff]
-  exclude = ["externals"]
-
 [merge]
   command = "nvim"
   args = ["-d", "{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
-
