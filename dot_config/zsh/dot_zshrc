@@ -48,6 +48,7 @@ source "$XDG_DATA_HOME/zsh/plugins/zsh-nvm.plugin.zsh"
 # Source gcloud sdk and completions
 source "$HOME/google-cloud-sdk/completion.zsh.inc"
 source "$HOME/google-cloud-sdk/path.zsh.inc"
+source "$XDG_DATA_HOME/zsh/plugins/zsh-vi-mode.zsh"
 
 # used for autocompleting 'gh' command
 gh() {
