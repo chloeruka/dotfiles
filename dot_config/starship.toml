@@ -21,6 +21,7 @@ $character"""
 
 continuation_prompt = " "
 add_newline = true
+command_timeout = 1000
 
 [character]
 format = "$symbol "
