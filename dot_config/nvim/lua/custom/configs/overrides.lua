@@ -54,7 +54,7 @@ M.nvimtree = {
     dotfiles = false,
     git_clean = false,
     no_buffer = false,
-    custom = { '.null-ls*', '.git' },
+    custom = { '.null-ls*', '^.git$' },
   },
   git = {
     enable = true,
