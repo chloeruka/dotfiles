@@ -1,0 +1,14 @@
+# Assume Python 3.9
+target-version = "py39"
+
+[lint]
+# Enable pycodestyle, Pyflakes, pyupgrade, flake8-bugbear, flake8-simplify and isort
+select = [ "E", "W", "F", "UP", "B", "SIM", "I" ]
+ignore = []
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
