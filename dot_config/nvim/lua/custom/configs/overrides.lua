@@ -2,17 +2,18 @@ local M = {}
 
 M.treesitter = {
   ensure_installed = {
-    "vim",
-    "lua",
-    "html",
-    "css",
-    "javascript",
-    "terraform",
-    "typescript",
-    "tsx",
     "c",
+    "css",
+    "html",
+    "javascript",
+    "lua",
     "markdown",
     "markdown_inline",
+    "python",
+    "terraform",
+    "tsx",
+    "typescript",
+    "vim",
   },
   indent = {
     enable = true,
@@ -30,7 +31,7 @@ M.mason = {
 
     -- custom stuff
     "yaml-language-server",
-    "pyright",
+    "basedpyright",
     "mypy",
     "ruff",
     "terraform-ls",
@@ -54,7 +55,7 @@ M.nvimtree = {
     dotfiles = false,
     git_clean = false,
     no_buffer = false,
-    custom = { '.null-ls*', '^.git$' },
+    custom = { '^.null-ls$', '^.git$' },
   },
   git = {
     enable = true,

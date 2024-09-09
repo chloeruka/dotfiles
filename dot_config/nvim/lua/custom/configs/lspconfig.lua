@@ -5,7 +5,7 @@ local capabilities = configs.capabilities
 local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "ts_ls", "clangd", "yamlls", "pyright", "ruff", "terraformls" }
+local servers = { "html", "cssls", "ts_ls", "clangd", "yamlls", "basedpyright", "ruff", "terraformls" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
