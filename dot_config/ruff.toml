@@ -1,5 +1,5 @@
-# Assume Python 3.9
-target-version = "py39"
+# Assume Python 3.11
+target-version = "py311"
 
 [lint]
 # Enable pycodestyle, Pyflakes, pyupgrade, flake8-bugbear, flake8-simplify and isort
