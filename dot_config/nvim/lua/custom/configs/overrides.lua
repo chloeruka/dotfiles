@@ -32,7 +32,7 @@ M.mason = {
     "yaml-language-server",
     "pyright",
     "mypy",
-    "ruff-lsp",
+    "ruff",
     "terraform-ls",
 
     -- web dev stuff

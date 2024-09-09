@@ -4,7 +4,7 @@ target-version = "py39"
 [lint]
 # Enable pycodestyle, Pyflakes, pyupgrade, flake8-bugbear, flake8-simplify and isort
 select = [ "E", "W", "F", "UP", "B", "SIM", "I" ]
-ignore = []
+ignore = [ "E501", "W503" ]
 
 # Allow fix for all enabled rules (when `--fix`) is provided.
 fixable = ["ALL"]
