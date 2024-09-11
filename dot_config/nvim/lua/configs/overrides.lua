@@ -24,29 +24,41 @@ M.treesitter = {
 }
 
 M.mason = {
-  ensure_installed = {
-    -- lua stuff
-    "lua-language-server",
-    "stylua",
-
-    -- custom stuff
+  -- -- OLD CONFIG
+  -- ensure_installed = {
+  --   -- lua stuff
+  --   "lua-language-server",
+  --   "stylua",
+  --
+  --   -- custom stuff
+  --   "yaml-language-server",
+  --   "basedpyright",
+  --   "mypy",
+  --   "ruff",
+  --   "terraform-ls",
+  --
+  --   -- web dev stuff
+  --   "css-lsp",
+  --   "html-lsp",
+  --   "typescript-language-server",
+  --   "deno",
+  --   "prettier",
+  --
+  --   -- c/cpp stuff
+  --   "clangd",
+  --   "clang-format",
+  -- },
+  pkgs = {
+    -- common language servers
     "yaml-language-server",
+    "terraform-ls",
+    "prettier",
+
+    -- python development
     "basedpyright",
     "mypy",
     "ruff",
-    "terraform-ls",
-
-    -- web dev stuff
-    "css-lsp",
-    "html-lsp",
-    "typescript-language-server",
-    "deno",
-    "prettier",
-
-    -- c/cpp stuff
-    "clangd",
-    "clang-format",
-  },
+  }
 }
 
 -- git support in nvimtree

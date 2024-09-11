@@ -1,10 +1,17 @@
 # Assume Python 3.11
 target-version = "py311"
 
+[format]
+# enable preview mode for fancier but potentially buggy formatting
+preview = true
+
 [lint]
+# enable preview mode for fancier but potentially buggy linting rules
+preview = true
+
 # Enable pycodestyle, Pyflakes, pyupgrade, flake8-bugbear, flake8-simplify and isort
 select = [ "E", "W", "F", "UP", "B", "SIM", "I" ]
-ignore = [ "E501", "W503" ]
+ignore = [ "E501" ]
 
 # Allow fix for all enabled rules (when `--fix`) is provided.
 fixable = ["ALL"]
