@@ -1,5 +1,10 @@
 local M = {}
 
+pcall(function()
+  dofile(vim.g.base46_cache .. "syntax")
+  dofile(vim.g.base46_cache .. "treesitter")
+end)
+
 M.treesitter = {
   ensure_installed = {
     "c",
@@ -20,6 +25,11 @@ M.treesitter = {
     -- disable = {
     --   "python"
     -- },
+  },
+
+  highlight = {
+    enable = true,
+    use_languagetree = true,
   },
 }
 
