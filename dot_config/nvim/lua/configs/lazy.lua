@@ -11,6 +11,10 @@ return {
     },
   },
 
+  nvdash = {
+    load_on_startup = false,
+  },
+
   performance = {
     rtp = {
       disabled_plugins = {
