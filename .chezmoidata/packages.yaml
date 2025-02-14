@@ -1,0 +1,9 @@
+packages:
+  darwin:
+    brews:
+    - 'git'
+    - 'starship'
+    - 'nvim'
+    - 'fzf'
+    - 'ripgrep'
+    casks:
