@@ -1,7 +1,9 @@
 [user]
-	signingkey = 3F81F02730CC0790
-	email = chloe.hutchinson@elastic.co
-	name = Chloe Hutchinson
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINZ2b1kP0/Q4QVLfu0GMdbhBWOKUbqMuBaqGpMjKzSZm
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [commit]
 	gpgsign = true
 [core]
