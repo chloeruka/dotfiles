@@ -1,0 +1,19 @@
+# Zsh environment
+export PATH="/opt/nvim/bin:/Users/ruka/.local/bin:/usr/local/go/bin:/Users/ruka/google-cloud-sdk/bin:/Users/ruka/Library/Python/3.9/bin:${PATH}"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Faster nvm
+export NVM_LAZY_LOAD=true
+export NVM_AUTO_USE=true
+
+# Faster nvm
+export NVM_LAZY_LOAD=true
+export NVM_AUTO_USE=true
+
+# Fix python forking behaviour for Ansible
+# https://github.com/ansible/ansible/issues/49207
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+# cargo environment
+source "$HOME/.cargo/env"
+

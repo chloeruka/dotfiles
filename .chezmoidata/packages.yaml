@@ -1,9 +1,14 @@
 packages:
   darwin:
     brews:
-    - 'git'
-    - 'starship'
-    - 'nvim'
-    - 'fzf'
-    - 'ripgrep'
+    - 'git' # ubiquitous VCS
+    - 'starship' # starship.rs terminal prompt
+    - 'tmux' # terminal multiplexer
+    - 'nvim' # neovim editor
+    - 'fzf' # file fuzzy find
+    - 'fastfetch' # maintained version of neofetch
+    - 'ripgrep' # fast grep                 similar to grep(1)
+    - 'bat' # syntax highlighted formatter  similar to cat(1)
+    - 'eza' # modern file lister            similar to ls(1)
+    - 'eva' # eva(luate) math REPL          similar to bc(1)
     casks:

@@ -1,0 +1,36 @@
+##
+## Tmux plugins
+## 
+
+# Tmux plugin manager
+[".config/tmux/plugins/tpm"]
+refreshPeriod = "168h"
+type = "archive"
+url = "https://github.com/tmux-plugins/tpm/archive/refs/heads/master.zip"
+exact = true
+stripComponents = 1
+
+##
+## ZSH plugins
+##
+[".local/share/zsh/plugins/zsh-nvm.plugin.zsh"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/lukechilds/zsh-nvm/raw/master/zsh-nvm.plugin.zsh"
+
+[".local/share/zsh/plugins/fzf-tab"]
+refreshPeriod = "168h"
+type = "archive"
+url = "https://github.com/Aloxaf/fzf-tab/archive/refs/heads/master.zip"
+exact = true
+stripComponents = 1
+
+[".local/share/zsh/plugins/zsh-autosuggestions.zsh"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/zsh-users/zsh-autosuggestions/raw/master/zsh-autosuggestions.zsh"
+
+[".local/share/zsh/plugins/zsh-vi-mode.zsh"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/jeffreytse/zsh-vi-mode/raw/master/zsh-vi-mode.zsh"

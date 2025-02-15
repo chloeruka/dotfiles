@@ -1,0 +1,19 @@
+##
+## Ghostty configuration file
+## https://ghostty.org/docs/config/reference
+##
+
+# 1 Appearance
+
+theme = "tokyonight"
+background-opacity = 0.8
+background-blur-radius = 40
+font-family = "Cascadia Mono NF Regular"
+font-family-bold = "Cascadia Mono NF Bold"
+font-family-italic = "Cascadia Mono NF Italic"
+font-family-bold-italic = "Cascadia Mono NF Bold Italic"
+
+# 2 Control
+focus-follows-mouse = true
+# focus window from anywhere
+keybind = global:cmd+`=toggle_visibility
