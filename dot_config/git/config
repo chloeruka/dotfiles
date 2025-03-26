@@ -1,5 +1,6 @@
 [user]
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINZ2b1kP0/Q4QVLfu0GMdbhBWOKUbqMuBaqGpMjKzSZm
+    email = 30171259+chloeruka@users.noreply.github.com
 [gpg]
 	format = ssh
 [gpg "ssh"]
