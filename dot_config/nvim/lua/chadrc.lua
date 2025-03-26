@@ -13,4 +13,9 @@ M.base46 = {
   },
 }
 
+M.nvdash = {
+  load_on_startup = true,
+  -- buttons =
+}
+
 return M

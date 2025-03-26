@@ -21,7 +21,10 @@ end
 
 lspconfig.inlay_hints = {
   enabled = true,
-  -- exclude = { "vue" }, -- filetypes for which you don't want to enable inlay hints
+  -- exclude = { "vue" }, -- filetypes to disable inlay hints on
+}
+lspconfig.codelens = {
+  enabled = true,
 }
 
 -- configure language servers which ship with sufficient defaults

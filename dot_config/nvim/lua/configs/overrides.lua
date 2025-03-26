@@ -68,29 +68,29 @@ M.mason = {
     "basedpyright",
     "mypy",
     "ruff",
-  }
+  },
 }
 
 -- git support in nvimtree
-M.nvimtree = {
-  filters = {
-    dotfiles = false,
-    git_clean = false,
-    no_buffer = false,
-    custom = { '^.null-ls$', '^.git$' },
-  },
-  git = {
-    enable = true,
-  },
-
-  renderer = {
-    highlight_git = true,
-    icons = {
-      show = {
-        git = true,
-      },
-    },
-  },
-}
+-- M.nvimtree = {
+--   filters = {
+--     dotfiles = false,
+--     git_clean = false,
+--     no_buffer = false,
+--     custom = { '^.null-ls$', '^.git$' },
+--   },
+--   git = {
+--     enable = true,
+--   },
+--
+--   renderer = {
+--     highlight_git = true,
+--     icons = {
+--       show = {
+--         git = true,
+--       },
+--     },
+--   },
+-- }
 
 return M

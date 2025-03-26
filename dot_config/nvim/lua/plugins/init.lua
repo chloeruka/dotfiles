@@ -9,7 +9,7 @@ return {
   -- code formatting
   {
     "stevearc/conform.nvim",
-    event = 'BufWritePre', -- comment to prevent format on save
+    event = "BufWritePre", -- comment to prevent format on save
     opts = require "configs.conform",
   },
 
@@ -33,7 +33,7 @@ return {
   -- Mason is a portable package manager
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = overrides.mason,
   },
 
   -- code-aware syntax highlighting
@@ -42,9 +42,44 @@ return {
     opts = overrides.treesitter,
   },
 
-  -- navigation sidebar / project directory list
+  -- LazyDev lazily updates workplace libraries for lua_ls
   {
-    "nvim-tree/nvim-tree.lua",
-    opts = overrides.nvimtree,
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
+
+    opts = {
+      library = {
+        -- See the configuration section for more details
+        -- Load luvit types when the `vim.uv` word is found
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
+    },
+  },
+
+  -- inlay-hints simplifies enabling neovim inlay hints
+  {
+    "MysticalDevil/inlay-hints.nvim",
+    event = "LspAttach",
+    dependencies = { "neovim/nvim-lspconfig" },
+    config = function()
+      require("inlay-hints").setup()
+    end,
+  },
+
+  -- nvim+tmux pane navigation and resizing
+  { "mrjones2014/smart-splits.nvim" },
+
+  -- session management
+  {
+    "rmagatti/auto-session",
+    lazy = false,
+
+    ---enables autocomplete for opts
+    ---@module "auto-session"
+    ---@type AutoSession.Config
+    opts = {
+      suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+      -- log_level = 'debug',
+    },
   },
 }
