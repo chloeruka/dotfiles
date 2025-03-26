@@ -11,4 +11,5 @@ packages:
     - 'bat' # syntax highlighted formatter  similar to cat(1)
     - 'eza' # modern file lister            similar to ls(1)
     - 'eva' # eva(luate) math REPL          similar to bc(1)
+    - 'pulumi' # IaC engine
     casks:
