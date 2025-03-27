@@ -53,6 +53,7 @@ source "$XDG_DATA_HOME/zsh/plugins/zsh-autosuggestions.zsh"
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 fpath=(${XDG_CONFIG_HOME}/zsh/completions $fpath)
 
+export NVM_DIR="${XDG_CONFIG_HOME}/nvm"
 source "$XDG_DATA_HOME/zsh/plugins/zsh-nvm.plugin.zsh"
 source "$XDG_DATA_HOME/zsh/plugins/zsh-vi-mode.zsh"
 
