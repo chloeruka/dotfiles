@@ -64,6 +64,9 @@ M.mason = {
     "terraform-ls",
     "prettier",
 
+    -- node/typescript development
+    "jsonls",
+
     -- python development
     "basedpyright",
     "mypy",
