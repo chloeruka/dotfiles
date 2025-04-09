@@ -6,15 +6,14 @@ path=(
   '/usr/local/go/bin'
   '/Users/ruka/google-cloud-sdk/bin'
   '/Users/ruka/Library/Python/3.9/bin'
+  '$XDG_DATA_HOME/pnpm'
   $path
 )
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 export PATH
 
-# Faster nvm
-export NVM_LAZY_LOAD=true
-export NVM_AUTO_USE=true
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 
 # Fix python forking behaviour for Ansible
 # https://github.com/ansible/ansible/issues/49207

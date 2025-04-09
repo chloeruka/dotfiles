@@ -1,5 +1,5 @@
 {{ if eq .chezmoi.os "darwin" -}}
-#!/bin/bash
+#!/bin/zsh
 
 brew bundle --file=/dev/stdin <<EOF
 {{ range .packages.darwin.brews -}}
@@ -10,3 +10,9 @@ cask {{ . | quote }}
 {{ end -}}
 EOF
 {{ end -}}
+
+export XDG_DATA_HOME=${XDG_DATA_HOME:-"~/.local/share"}
+if [ ! -d "$XDG_DATA_HOME/pnpm" ]; then
+  echo "installing pnpm..."
+  curl -fsSL https://get.pnpm.io/install.sh | zsh -
+fi

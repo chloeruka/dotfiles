@@ -2,12 +2,12 @@
 alias jjbb="docker run --rm -e VAULT_TOKEN -e HOME=/jjbb -v $(pwd):/jjbb -w /jjbb --network=host docker.elastic.co/infra/jjbb"
 alias reload="exec zsh"
 
-if which cargo > /dev/null 2>&1; then
+if (( $+commands[cargo] )); then
   # cargo environment
   source "$HOME/.cargo/env"
 fi
 
-if which pulumi > /dev/null 2>&1; then
+if (( $+commands[pulumi] )); then
   export OP_PLUGIN_ALIASES_SOURCED=1
   alias pulumi="op plugin run -- pulumi"
 fi
@@ -51,14 +51,12 @@ source "$XDG_DATA_HOME/zsh/plugins/zsh-autosuggestions.zsh"
 
 # better file/dir completion (source: https://stackoverflow.com/a/24237590)
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-fpath=(${XDG_CONFIG_HOME}/zsh/completions $fpath)
+fpath=(${XDG_CONFIG_HOME}/zsh/completion $fpath)
 
-export NVM_DIR="${XDG_CONFIG_HOME}/nvm"
-source "$XDG_DATA_HOME/zsh/plugins/zsh-nvm.plugin.zsh"
 source "$XDG_DATA_HOME/zsh/plugins/zsh-vi-mode.zsh"
 
 # Source gcloud sdk and completions
-if which "gcloud" > /dev/null 2>&1; then
+if (( $+commands[gcloud] )); then
   source "$HOME/google-cloud-sdk/completion.zsh.inc"
   source "$HOME/google-cloud-sdk/path.zsh.inc"
 fi

@@ -2,6 +2,7 @@ packages:
   darwin:
     brews:
     - 'git' # ubiquitous VCS
+    - 'wget'
     - 'starship' # starship.rs terminal prompt
     - 'tmux' # terminal multiplexer
     - 'nvim' # neovim editor
