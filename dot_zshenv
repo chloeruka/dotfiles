@@ -26,9 +26,5 @@ else
 	export XDG_CONFIG_DIRS="/etc/xdg:$XDG_CONFIG_DIRS"
 fi
 
-# AWS config
-export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
-export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
-
 ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 source "$ZDOTDIR/.zshenv"

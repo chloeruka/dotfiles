@@ -15,7 +15,11 @@ export PATH
 
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 
-# Fix python forking behaviour for Ansible
-# https://github.com/ansible/ansible/issues/49207
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+# AWS config
+export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
+export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
+
+# kubernetes config
+# this setting can be path separated with ':'
+export KUBECONFIG="$XDG_CONFIG_HOME/kube/config"
 
