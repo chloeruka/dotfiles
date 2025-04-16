@@ -2,10 +2,11 @@
 
 path=(
   '/opt/nvim/bin'
-  '/Users/ruka/.local/bin'
+  '$HOME/.local/bin'
   '/usr/local/go/bin'
-  '/Users/ruka/google-cloud-sdk/bin'
-  '/Users/ruka/Library/Python/3.9/bin'
+  '$HOME/google-cloud-sdk/bin'
+  '$HOME/Library/Python/3.9/bin'
+  '$HOME/.orbstack/bin'
   '$XDG_DATA_HOME/pnpm'
   $path
 )
