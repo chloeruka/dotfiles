@@ -61,6 +61,14 @@ if (( $+commands[gcloud] )); then
   source "$HOME/google-cloud-sdk/path.zsh.inc"
 fi
 
+# koinu/Blinq-specific, configure fnm
+# TODO; can i work around this with pnpm? i don't like it very much
+FNM_PATH="$XDG_DATA_HOME/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "`fnm env`"
+fi
+
 # used for autocompleting 'gh' command
 gh() {
 	if [ ! -d ~/git/$1/$2 ]; then
