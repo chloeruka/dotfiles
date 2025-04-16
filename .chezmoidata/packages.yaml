@@ -15,4 +15,5 @@ packages:
     - 'pulumi' # IaC engine
     - 'oci-cli' # Oracle Cloud CLI (oci)
     - 'kubectl' # kubernetes CLI (kubectl)
+    - 'orbstack' # rich docker desktop alternative for MacOS
     casks:
