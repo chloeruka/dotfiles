@@ -23,3 +23,5 @@ export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
 # this setting can be path separated with ':'
 export KUBECONFIG="$XDG_CONFIG_HOME/kube/config"
 
+# Blinq-specific
+export FA_NPM_TOKEN="op://Employee/Font Awesome Package Token/credential"
