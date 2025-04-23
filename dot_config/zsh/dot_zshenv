@@ -4,16 +4,15 @@ path=(
   '/opt/nvim/bin'
   '$HOME/.local/bin'
   '/usr/local/go/bin'
-  '$HOME/google-cloud-sdk/bin'
   '$HOME/Library/Python/3.9/bin'
   '$HOME/.orbstack/bin'
   '$XDG_DATA_HOME/pnpm'
   $path
 )
-eval "$(/opt/homebrew/bin/brew shellenv)"
 
 export PATH
 
+# Set XDG dir for PNPM data
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 
 # AWS config
@@ -24,5 +23,8 @@ export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
 # this setting can be path separated with ':'
 export KUBECONFIG="$XDG_CONFIG_HOME/kube/config"
 
+# Move .npmrc into XDG config home
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npmrc"
+
 # Blinq-specific
-export FA_NPM_TOKEN="op://Employee/Font Awesome Package Token/credential"
+export FA_NPM_TOKEN="op://Employee/FontAwesomePackageToken/credential"

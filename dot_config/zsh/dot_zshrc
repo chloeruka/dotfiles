@@ -36,29 +36,23 @@ export EXA_COLORS="ur=34:gr=34:tr=34:sn=34:sb=34:uu=36;;01:un=34"
 
 alias fuck='sudo $(fc -ln -1)'
 
-#Initiate starship
+# initialize Starship prompt
 eval "$(starship init zsh)"
 
 # ZSH auto completion init (must be after compinit but before autosuggestions)
 autoload -Uz compinit && compinit
 
-# ZSH replace autocomplete with FZF (toggle-fzf-tab)
-# NOTE: must load after compinit but before zsh-autosuggestions
-source "$XDG_DATA_HOME/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh"
-
-#ZSH Autosuggestions 
-source "$XDG_DATA_HOME/zsh/plugins/zsh-autosuggestions.zsh"
-
 # better file/dir completion (source: https://stackoverflow.com/a/24237590)
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+# zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
 fpath=(${XDG_CONFIG_HOME}/zsh/completion $fpath)
 
 source "$XDG_DATA_HOME/zsh/plugins/zsh-vi-mode.zsh"
 
 # Source gcloud sdk and completions
 if (( $+commands[gcloud] )); then
-  source "$HOME/google-cloud-sdk/completion.zsh.inc"
-  source "$HOME/google-cloud-sdk/path.zsh.inc"
+  source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+  source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
 fi
 
 # koinu/Blinq-specific, configure fnm
@@ -95,7 +89,12 @@ if which pyenv > /dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-autoload -Uz compinit && compinit
+# ZSH replace autocomplete with FZF (toggle-fzf-tab)
+# NOTE: must load after compinit but before zsh-autosuggestions
+source "$XDG_DATA_HOME/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh"
+
+# ZSH Autosuggestions 
+source "$XDG_DATA_HOME/zsh/plugins/zsh-autosuggestions.zsh"
 
 # gifs bc i like them
 video-url-from-tweet() {
