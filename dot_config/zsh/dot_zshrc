@@ -2,14 +2,20 @@
 alias jjbb="docker run --rm -e VAULT_TOKEN -e HOME=/jjbb -v $(pwd):/jjbb -w /jjbb --network=host docker.elastic.co/infra/jjbb"
 alias reload="exec zsh"
 
+# rust/cargo environment
 if (( $+commands[cargo] )); then
-  # cargo environment
   source "$HOME/.cargo/env"
 fi
 
+# pulumi use onepassword
 if (( $+commands[pulumi] )); then
   export OP_PLUGIN_ALIASES_SOURCED=1
   alias pulumi="op plugin run -- pulumi"
+fi
+
+# rbenv setup
+if (( $+commands[rbenv] )); then
+  eval "$(rbenv init - zsh)"
 fi
 
 # benchmark zsh startup
