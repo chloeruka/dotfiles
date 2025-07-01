@@ -61,8 +61,7 @@ if (( $+commands[gcloud] )); then
   source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
 fi
 
-# koinu/Blinq-specific, configure fnm
-# TODO; can i work around this with pnpm? i don't like it very much
+# configure fnm (Fast Node Manager)
 FNM_PATH="$XDG_DATA_HOME/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="$FNM_PATH:$PATH"
