@@ -98,10 +98,12 @@ truncation_length = 25
 truncation_symbol = ".."
 
 [git_state]
-format = '[ $state( ($progress_current/$progress_total)]($style)'
+format = '[ $symbol$branch]($style)'
+#format = '[ $state( ($progress_current/$progress_total)]($style)'
 
 [git_status]
-format = '[( $conflicted$deleted$renamed$modified$staged$untracked$ahead_behind)]($style)\]'
+format = '([ $all_status$ahead_behind]($style))\]'
+#format = '[( $conflicted$deleted$renamed$modified$staged$untracked$ahead_behind)]($style)\]'
 
 [golang]
 format = '\[[$symbol($version)]($style)\]'
