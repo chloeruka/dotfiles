@@ -27,5 +27,5 @@ export KUBECONFIG="$XDG_CONFIG_HOME/kube/config"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npmrc"
 
 # OCI config file location
-export OCI_CLI_CONFIG_FILE="$XDG_CONFIG_HOME/oracle/config"
-export OCI_CLI_RC_FILE="$XDG_CONFIG_HOME/oracle/oci_cli_rc"
+export OCI_CLI_CONFIG_FILE="$XDG_CONFIG_HOME/oci/config"
+export OCI_CLI_RC_FILE="$XDG_CONFIG_HOME/oci/oci_cli_rc"
