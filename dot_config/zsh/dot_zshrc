@@ -68,6 +68,13 @@ if [ -d "$FNM_PATH" ]; then
   eval "`fnm env`"
 fi
 
+# cleans up local git branches of merged branches
+git-prune() {
+  git switch main &&
+  git pull --prune &&
+  git branch --format '%(refname:short) %(upstream:track)' | awk '$2 == "[gone]" { print $1 }' | xargs -r git branch -D
+}
+
 # used for autocompleting 'gh' command
 gh() {
 	if [ ! -d ~/git/$1/$2 ]; then
