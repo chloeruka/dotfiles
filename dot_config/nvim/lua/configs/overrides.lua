@@ -65,7 +65,8 @@ M.mason = {
     "prettier",
 
     -- node/typescript development
-    "jsonls",
+    "jsonls", -- some overlap with prettier
+    "vtsls", -- uses VSCode LSP for typescript development
 
     -- python development
     "basedpyright",

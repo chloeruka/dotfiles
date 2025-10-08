@@ -28,7 +28,7 @@ lspconfig.codelens = {
 }
 
 -- configure language servers which ship with sufficient defaults
-local servers = { "html", "cssls", "ts_ls", "yamlls", "tflint" }
+local servers = { "html", "cssls", "vtsls", "yamlls", "jsonls", "tflint" }
 
 -- loop through lsps that use a default config
 for _, lsp in ipairs(servers) do

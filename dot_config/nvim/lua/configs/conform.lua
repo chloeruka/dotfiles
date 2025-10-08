@@ -12,7 +12,11 @@ local options = {
     css = { "prettier" },
     html = { "prettier" },
     javascript = { "prettier" },
+    typescript = { "prettier" },
+    typescriptreact = { "prettier" },
     json = { "prettier" },
+    markdown = { "prettier" },
+    yaml = { "prettier" },
     python = { "ruff_fix", "ruff_format", "black" },
   },
 
