@@ -58,7 +58,7 @@ M.mason = {
   --   "clangd",
   --   "clang-format",
   -- },
-  pkgs = {
+  pkgs = { -- TODO: move to mason-lspconfig
     -- common language servers
     "yaml-language-server",
     "terraform-ls",
@@ -67,6 +67,7 @@ M.mason = {
     -- node/typescript development
     "jsonls", -- some overlap with prettier
     "vtsls", -- uses VSCode LSP for typescript development
+    "copilot",
 
     -- python development
     "basedpyright",

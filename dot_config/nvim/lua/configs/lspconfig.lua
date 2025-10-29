@@ -2,48 +2,39 @@
 -- nvim-lspconfig configures language servers
 --
 
-local nvlsp = require "nvchad.configs.lspconfig"
-local lspconfig = require "lspconfig"
+require("nvchad.configs.lspconfig").defaults()
 
-nvlsp.defaults() -- loads nvchad's defaults
+-- local nvlsp = require "nvchad.configs.lspconfig"
+-- local lspconfig = -- require "lspconfig"
+--
+-- nvlsp.defaults() -- loads nvchad's defaults
 
-local lsp_on_attach = function(client, bufnr)
-  nvlsp.on_attach(client, bufnr)
-  local map = vim.keymap.set
+-- local lsp_on_attach = function(client, bufnr)
+--   nvlsp.on_attach(client, bufnr)
+--   local map = vim.keymap.set
+--
+-- 	-- define LSP specific key bindings
+-- 	-- stylua: ignore start
+-- 	map("n", "gd", "<cmd>Telescope lsp_definitions<CR>", { buffer = bufnr, desc = "Telescope: LSP defininitions" })
+-- 	map("n", "gr", "<cmd>Telescope lsp_references<CR>", { buffer = bufnr, desc = "Telescope: LSP references" })
+-- 	map("n", "gi", "<cmd>Telescope lsp_implementations<CR>", { buffer = bufnr, desc = "Telescope: LSP implementations" })
+--   -- stylua: ignore end
+-- end
 
-	-- define LSP specific key bindings
-	-- stylua: ignore start
-	map("n", "gd", "<cmd>Telescope lsp_definitions<CR>", { buffer = bufnr, desc = "Telescope: LSP defininitions" })
-	map("n", "gr", "<cmd>Telescope lsp_references<CR>", { buffer = bufnr, desc = "Telescope: LSP references" })
-	map("n", "gi", "<cmd>Telescope lsp_implementations<CR>", { buffer = bufnr, desc = "Telescope: LSP implementations" })
-  -- stylua: ignore end
-end
-
-lspconfig.inlay_hints = {
-  enabled = true,
-  -- exclude = { "vue" }, -- filetypes to disable inlay hints on
-}
-lspconfig.codelens = {
-  enabled = true,
-}
+-- vim.lsp.inlay_hint.enable(true)
+-- vim.lsp.codelens.enable(true)
 
 -- configure language servers which ship with sufficient defaults
-local servers = { "html", "cssls", "vtsls", "yamlls", "jsonls", "tflint" }
+vim.lsp.enable { "html", "cssls", "vtsls", "yamlls", "jsonls", "tflint" }
 
--- loop through lsps that use a default config
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = lsp_on_attach,
-    on_init = nvlsp.on_init,
-    capabilities = nvlsp.capabilities,
-  }
-end
+vim.lsp.config["copilot"] = {
+  cmd = { "copilot-language-server", "--stdio" },
+  root_markers = { ".git" },
+}
+vim.lsp.enable "copilot"
 
 -- configure ruff with special options
-lspconfig.ruff.setup {
-  on_attach = lsp_on_attach,
-  on_init = nvlsp.on_init,
-  capabilities = nvlsp.capabilities,
+vim.lsp.config["ruff"] = {
   init_options = {
     settings = {
       configuration = "~/.config/ruff.toml",
@@ -52,12 +43,10 @@ lspconfig.ruff.setup {
     },
   },
 }
+vim.lsp.enable "ruff"
 
 -- configure pyright (python LSP) with special options
-lspconfig.basedpyright.setup {
-  on_attach = lsp_on_attach,
-  on_init = nvlsp.on_init,
-  capabilities = nvlsp.capabilities,
+vim.lsp.config["basedpyright"] = {
   settings = {
     pyright = {
       -- Using Ruff's import organizer
@@ -76,9 +65,10 @@ lspconfig.basedpyright.setup {
     },
   },
 }
+vim.lsp.enable "basedpyright"
 
 -- configure terraformls with special options
-lspconfig.terraformls.setup {
+vim.lsp.config["terraformls"] = {
   on_attach = function(client, bufnr)
     -- fixes commentstrings for terraform and HCL
     vim.api.nvim_create_autocmd("FileType", {
@@ -90,16 +80,13 @@ lspconfig.terraformls.setup {
     })
     lsp_on_attach(client, bufnr)
   end,
-  on_init = nvlsp.on_init,
-  capabilities = nvlsp.capabilities,
   flags = { debounce_text_changes = 150 },
 }
 
+vim.lsp.enable "terraformls"
+
 -- configure jsonls to complete tsconfig and so on
-lspconfig.jsonls.setup {
-  on_attach = lsp_on_attach,
-  on_init = nvlsp.on_init,
-  capabilities = nvlsp.capabilities,
+vim.lsp.config["jsonls"] = {
   settings = {
     json = {
       -- Schemas https://www.schemastore.org
@@ -148,3 +135,4 @@ lspconfig.jsonls.setup {
     },
   },
 }
+vim.lsp.enable "jsonls"

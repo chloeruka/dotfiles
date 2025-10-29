@@ -66,6 +66,17 @@ return {
     end,
   },
 
+  -- copilot
+  -- { "github/copilot.vim" },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup {}
+    end,
+  },
+
   -- nvim+tmux pane navigation and resizing
   { "mrjones2014/smart-splits.nvim" },
 
