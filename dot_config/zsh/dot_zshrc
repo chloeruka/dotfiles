@@ -61,12 +61,8 @@ if (( $+commands[gcloud] )); then
   source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
 fi
 
-# configure fnm (Fast Node Manager)
-FNM_PATH="$XDG_DATA_HOME/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
-  eval "`fnm env`"
-fi
+# configure mise
+eval "$(mise activate zsh)"
 
 # cleans up local git branches of merged branches
 git-prune() {
