@@ -68,7 +68,7 @@ M.mason = {
     "biome",
     "jsonls", -- some overlap with prettier
     "vtsls", -- uses VSCode LSP for typescript development
-    "copilot",
+    -- "copilot",
 
     -- python development
     "basedpyright",
