@@ -36,10 +36,13 @@ vim.lsp.enable { "html", "cssls", "yamlls", "jsonls", "tflint" }
 vim.lsp.config["vtsls"] = {
   settings = {
     typescript = {
-      -- this is a workaround to resolve tsserver failures in large projects (e.g. monorepos)
-      -- other strategies to consider: enable tree-sitter, disable eslint/prettier
-      maxTsServerMemory = 5192,
-      nodePath = "$XDG_DATA_HOME/mise/installs/bun/1.3.5/bin/bun",
+      tsserver = {
+        -- this is a workaround to resolve tsserver failures in large projects (e.g. monorepos)
+        -- other strategies to consider: enable tree-sitter, disable eslint/prettier
+        maxTsServerMemory = 5192,
+        -- nodePath = "$XDG_DATA_HOME/mise/installs/bun/1.3.5/bin/bun",
+        nodePath = "/Users/ruka/.local/share/mise/installs/bun/1.3.5/bin/bun",
+      },
     },
   },
 }
