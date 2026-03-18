@@ -14,8 +14,7 @@ M.base46 = {
 }
 
 M.nvdash = {
-  load_on_startup = true,
-  -- buttons =
+  load_on_startup = false, -- Dashboard only when opening directories
 }
 
 return M

@@ -14,17 +14,14 @@ M.treesitter = {
     "lua",
     "markdown",
     "markdown_inline",
-    "python",
     "terraform",
     "tsx",
     "typescript",
     "vim",
+    "yaml",
   },
   indent = {
     enable = true,
-    -- disable = {
-    --   "python"
-    -- },
   },
 
   highlight = {
@@ -34,69 +31,17 @@ M.treesitter = {
 }
 
 M.mason = {
-  -- -- OLD CONFIG
-  -- ensure_installed = {
-  --   -- lua stuff
-  --   "lua-language-server",
-  --   "stylua",
-  --
-  --   -- custom stuff
-  --   "yaml-language-server",
-  --   "basedpyright",
-  --   "mypy",
-  --   "ruff",
-  --   "terraform-ls",
-  --
-  --   -- web dev stuff
-  --   "css-lsp",
-  --   "html-lsp",
-  --   "typescript-language-server",
-  --   "deno",
-  --   "prettier",
-  --
-  --   -- c/cpp stuff
-  --   "clangd",
-  --   "clang-format",
-  -- },
-  pkgs = { -- TODO: move to mason-lspconfig
+  pkgs = {
     -- common language servers
     "yaml-language-server",
     "terraform-ls",
-    "prettier",
 
     -- node/typescript development
     "biome",
-    "jsonls", -- some overlap with prettier
+    "prettier",
+    "jsonls",
     "vtsls", -- uses VSCode LSP for typescript development
-    -- "copilot",
-
-    -- python development
-    "basedpyright",
-    "mypy",
-    "ruff",
   },
 }
-
--- git support in nvimtree
--- M.nvimtree = {
---   filters = {
---     dotfiles = false,
---     git_clean = false,
---     no_buffer = false,
---     custom = { '^.null-ls$', '^.git$' },
---   },
---   git = {
---     enable = true,
---   },
---
---   renderer = {
---     highlight_git = true,
---     icons = {
---       show = {
---         git = true,
---       },
---     },
---   },
--- }
 
 return M

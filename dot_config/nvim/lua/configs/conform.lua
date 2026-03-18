@@ -1,7 +1,6 @@
 --
 -- conform.nvim configures formatting by filetype
--- alongside nvim-lint, this plugin helps replace null-ls
--- via format_on_save, we can fallback to the LSP provider's built-in formatting
+-- format_on_save falls back to LSP formatting when no formatter is configured
 --
 
 ---@module "conform"
@@ -11,13 +10,14 @@ local options = {
     lua = { "stylua" },
     css = { "biome" },
     html = { "biome" },
-    javascript = { "biome-check" },
-    typescript = { "biome-check" },
-    typescriptreact = { "biome-check" },
+    javascript = { "biome" },
+    typescript = { "biome" },
+    typescriptreact = { "biome" },
+    javascriptreact = { "biome" },
     json = { "biome" },
+    jsonc = { "biome" },
     markdown = { "prettier" },
     yaml = { "prettier" },
-    python = { "ruff_fix", "ruff_format", "black" },
   },
 
   format_on_save = function(bufnr)

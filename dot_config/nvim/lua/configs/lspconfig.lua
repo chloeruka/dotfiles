@@ -4,34 +4,8 @@
 
 require("nvchad.configs.lspconfig").defaults()
 
--- local nvlsp = require "nvchad.configs.lspconfig"
--- local lspconfig = -- require "lspconfig"
---
--- nvlsp.defaults() -- loads nvchad's defaults
-
--- local lsp_on_attach = function(client, bufnr)
---   nvlsp.on_attach(client, bufnr)
---   local map = vim.keymap.set
---
--- 	-- define LSP specific key bindings
--- 	-- stylua: ignore start
--- 	map("n", "gd", "<cmd>Telescope lsp_definitions<CR>", { buffer = bufnr, desc = "Telescope: LSP defininitions" })
--- 	map("n", "gr", "<cmd>Telescope lsp_references<CR>", { buffer = bufnr, desc = "Telescope: LSP references" })
--- 	map("n", "gi", "<cmd>Telescope lsp_implementations<CR>", { buffer = bufnr, desc = "Telescope: LSP implementations" })
---   -- stylua: ignore end
--- end
-
--- vim.lsp.inlay_hint.enable(true)
--- vim.lsp.codelens.enable(true)
-
 -- configure language servers which ship with sufficient defaults
 vim.lsp.enable { "html", "cssls", "yamlls", "jsonls", "tflint" }
-
--- vim.lsp.config["copilot"] = {
---   cmd = { "copilot-language-server", "--stdio" },
---   root_markers = { ".git" },
--- }
--- vim.lsp.enable "copilot"
 
 vim.lsp.config["vtsls"] = {
   settings = {
@@ -40,47 +14,12 @@ vim.lsp.config["vtsls"] = {
         -- this is a workaround to resolve tsserver failures in large projects (e.g. monorepos)
         -- other strategies to consider: enable tree-sitter, disable eslint/prettier
         maxTsServerMemory = 5192,
-        -- nodePath = "$XDG_DATA_HOME/mise/installs/bun/1.3.5/bin/bun",
-        nodePath = "/Users/ruka/.local/share/mise/installs/bun/1.3.5/bin/bun",
+        nodePath = vim.fn.exepath("bun") ~= "" and vim.fn.exepath("bun") or vim.fn.exepath("node"),
       },
     },
   },
 }
 vim.lsp.enable "vtsls"
-
--- configure ruff with special options
-vim.lsp.config["ruff"] = {
-  init_options = {
-    settings = {
-      configuration = "~/.config/ruff.toml",
-      -- Any extra CLI arguments for `ruff` go here.
-      --args = { "--config", "~/.config/ruff.toml" },
-    },
-  },
-}
-vim.lsp.enable "ruff"
-
--- configure pyright (python LSP) with special options
-vim.lsp.config["basedpyright"] = {
-  settings = {
-    pyright = {
-      -- Using Ruff's import organizer
-      disableOrganizeImports = true,
-    },
-    basedpyright = {
-      analysis = {
-        autoSearchPaths = true,
-        diagnosticMode = "openFilesOnly",
-        useLibraryCodeForTypes = true,
-        reportMissingTypeStubs = false,
-        typeCheckingMode = "basic",
-        -- Ignore all files for analysis to exclusively use Ruff for linting
-        -- ignore = { "*" },
-      },
-    },
-  },
-}
-vim.lsp.enable "basedpyright"
 
 -- configure terraformls with special options
 vim.lsp.config["terraformls"] = {
@@ -91,9 +30,7 @@ vim.lsp.config["terraformls"] = {
       callback = function(ev)
         vim.bo[ev.buf].commentstring = "# %s"
       end,
-      -- pattern = { "terraform", "hcl" }, -- shouldn't be necessary given we bind on_attach
     })
-    lsp_on_attach(client, bufnr)
   end,
   flags = { debounce_text_changes = 150 },
 }
@@ -113,14 +50,6 @@ vim.lsp.config["jsonls"] = {
         {
           fileMatch = { "tsconfig*.json" },
           url = "https://json.schemastore.org/tsconfig.json",
-        },
-        {
-          fileMatch = {
-            ".prettierrc",
-            ".prettierrc.json",
-            "prettier.config.json",
-          },
-          url = "https://json.schemastore.org/prettierrc.json",
         },
         {
           fileMatch = { ".eslintrc", ".eslintrc.json" },

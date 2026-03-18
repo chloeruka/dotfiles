@@ -13,15 +13,6 @@ return {
     opts = require "configs.conform",
   },
 
-  -- code linting
-  -- {
-  --   "mfussenegger/nvim-lint",
-  --   config = function()
-  --     require("configs.lint").setup()
-  --   end,
-  --   opts = require "configs.lint"
-  -- },
-
   -- LSP server integration on buffers
   {
     "neovim/nvim-lspconfig",
@@ -65,17 +56,6 @@ return {
       require("inlay-hints").setup()
     end,
   },
-
-  -- copilot
-  -- { "github/copilot.vim" },
-  -- {
-  --   "zbirenbaum/copilot.lua",
-  --   cmd = "Copilot",
-  --   event = "InsertEnter",
-  --   config = function()
-  --     require("copilot").setup {}
-  --   end,
-  -- },
 
   -- nvim+tmux pane navigation and resizing
   { "mrjones2014/smart-splits.nvim" },
