@@ -30,6 +30,7 @@ return {
   -- code-aware syntax highlighting
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
     opts = overrides.treesitter,
   },
 
