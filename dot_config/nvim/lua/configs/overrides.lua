@@ -26,7 +26,6 @@ M.treesitter = {
 
   highlight = {
     enable = true,
-    use_languagetree = true,
   },
 }
 
