@@ -9,6 +9,7 @@ theme = "tokyonight"
 background-opacity = 0.8
 background-blur-radius = 40
 window-padding-balance = true
+macos-titlebar-style = hidden
 font-family = "Cascadia Code NF Regular"
 font-family-bold = "Cascadia Code NF Bold"
 font-family-italic = "Cascadia Code NF Italic"
