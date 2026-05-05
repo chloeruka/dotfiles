@@ -20,8 +20,8 @@ font-thicken = true
 
 # hover mouse over a pane to focus it
 focus-follows-mouse = true
-# 󰘳+` to summon term
-keybind = global:cmd+`=toggle_visibility
+# ⌥+space to summon term
+keybind = global:opt+space=toggle_visibility
 # opens URLs
 link-url = true
 # select text to both selection and system clipboard
