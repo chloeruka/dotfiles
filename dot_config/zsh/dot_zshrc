@@ -45,13 +45,31 @@ alias fuck='sudo $(fc -ln -1)'
 # initialize Starship prompt
 eval "$(starship init zsh)"
 
-# ZSH auto completion init (must be after compinit but before autosuggestions)
-autoload -Uz compinit && compinit
-
 # better file/dir completion (source: https://stackoverflow.com/a/24237590)
 # zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-fpath=(${XDG_CONFIG_HOME}/zsh/completion $fpath)
+# Custom completion dir + zsh-completions (brew) — must be added to fpath BEFORE compinit
+fpath=(
+  ${XDG_CONFIG_HOME}/zsh/completion
+  /opt/homebrew/share/zsh-completions
+  $fpath
+)
+
+# ZSH auto completion init (must run before zsh-autosuggestions / fzf-tab)
+# Cache compinit's security check: only do the full scan once a day,
+# otherwise reuse .zcompdump for faster shell startup.
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
+  compinit -u
+else
+  compinit -C
+fi
+
+# Terraform uses bash-style completion via `complete -C`, not an _terraform file
+if (( $+commands[terraform] )); then
+  autoload -Uz bashcompinit && bashcompinit
+  complete -o nospace -C terraform terraform
+fi
 
 source "$XDG_DATA_HOME/zsh/plugins/zsh-vi-mode.zsh"
 
@@ -70,20 +88,6 @@ git-prune() {
   git pull --prune &&
   git branch --format '%(refname:short) %(upstream:track)' | awk '$2 == "[gone]" { print $1 }' | xargs -r git branch -D
 }
-
-# used for autocompleting 'gh' command
-gh() {
-	if [ ! -d ~/git/$1/$2 ]; then
-		cd ~/git
-		if git ls-remote "git@github.com:$1/$2.git" -q; then
-			git clone "git@github.com:$1/$2.git"
-		else
-			echo "Unable to find repository \"$1/$2\" on github.com"
-		fi
-	fi
-	cd ~/git/$1/$2
-}
-compctl -W ~/git/ -/ gh
 
 [ -f "${XDG_CONFIG_HOME-}/zsh/fzf.zsh" ] && source "${XDG_CONFIG_HOME-}/zsh/fzf.zsh"
 
