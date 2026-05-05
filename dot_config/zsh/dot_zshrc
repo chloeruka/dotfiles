@@ -82,6 +82,11 @@ fi
 # configure mise
 eval "$(mise activate zsh)"
 
+# zoxide - smarter cd (use `z <pat>` to jump to frecent dirs)
+if (( $+commands[zoxide] )); then
+  eval "$(zoxide init zsh)"
+fi
+
 # cleans up local git branches of merged branches
 git-prune() {
   git switch main &&
@@ -105,8 +110,27 @@ fi
 # NOTE: must load after compinit but before zsh-autosuggestions
 source "$XDG_DATA_HOME/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh"
 
-# ZSH Autosuggestions 
+# ZSH Autosuggestions
 source "$XDG_DATA_HOME/zsh/plugins/zsh-autosuggestions.zsh"
+
+# atuin - magical shell history (ctrl+r, up arrow), syncs across tmux panes
+if (( $+commands[atuin] )); then
+  eval "$(atuin init zsh)"
+fi
+
+# navi - interactive cheatsheet launcher (ctrl+g)
+# `navi widget zsh` defines _navi_widget
+if (( $+commands[navi] )); then
+  eval "$(navi widget zsh)"
+fi
+
+# zsh-vi-mode reinitialises ZLE on a deferred hook (zvm_after_init), which
+# wipes any bindkeys set during .zshrc. Re-apply ctrl+r (atuin) and ctrl+g
+# (navi) inside zvm_after_init_commands so they survive that reset.
+zvm_after_init_commands+=(
+  'bindkey "^R" _atuin_search_widget'
+  'bindkey "^G" _navi_widget'
+)
 
 # gifs bc i like them
 video-url-from-tweet() {

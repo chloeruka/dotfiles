@@ -1,19 +1,33 @@
 packages:
   darwin:
     brews:
-    - 'git' # ubiquitous VCS
-    - 'wget'
-    - 'starship' # starship.rs terminal prompt
-    - 'tmux' # terminal multiplexer
-    - 'nvim' # neovim editor
-    - 'fzf' # file fuzzy find
-    - 'fastfetch' # maintained version of neofetch
-    - 'ripgrep' # fast grep                 similar to grep(1)
-    - 'bat' # syntax highlighted formatter  similar to cat(1)
-    - 'eza' # modern file lister            similar to ls(1)
-    - 'eva' # eva(luate) math REPL          similar to bc(1)
-    - 'pulumi' # IaC engine
-    - 'oci-cli' # Oracle Cloud CLI (oci)
-    - 'kubectl' # kubernetes CLI (kubectl)
+      - "git" # ubiquitous VCS
+      - "wget"
+      - "starship" # starship.rs terminal prompt
+      - "tmux" # terminal multiplexer
+      - "nvim" # neovim editor
+      - "fzf" # file fuzzy find
+      - "fastfetch" # maintained version of neofetch
+      - "ripgrep" # fast grep                 similar to grep(1)
+      - "bat" # syntax highlighted formatter  similar to cat(1)
+      - "eza" # modern file lister            similar to ls(1)
+      - "eva" # eva(luate) math REPL          similar to bc(1)
+      - "fd" # fast file finder               similar to find(1)
+      - "jq" # JSON processor
+      - "yq" # YAML processor
+      - "gh" # GitHub CLI
+      - "chezmoi" # dotfile manager
+      - "tree-sitter-cli" # parser generator (nvim deps)
+      - "zsh-completions" # extra completion definitions
+      - "lazydocker" # TUI for docker
+      - "atuin" # shell history with sync
+      - "navi" # interactive cheatsheet launcher
+      - "zoxide" # directory browsing memory similar to cd(1)
+      - "mise" # runtime/tool version manager (asdf-compatible)
+      - "pulumi" # IaC engine
+      - "oci-cli" # Oracle Cloud CLI (oci)
+      - "kubectl" # kubernetes CLI (kubectl)
     casks:
-    - 'orbstack' # rich docker desktop alternative for MacOS
+      - "orbstack" # rich docker desktop alternative for MacOS
+      - "1password-cli" # password manager CLI
+      - "google-cloud-sdk" # gcloud + bq + gsutil
