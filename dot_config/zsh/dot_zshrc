@@ -42,6 +42,22 @@ export EXA_COLORS="ur=34:gr=34:tr=34:sn=34:sb=34:uu=36;;01:un=34"
 
 alias fuck='sudo $(fc -ln -1)'
 
+# cheatsheet — open ~/.local/share/chezmoi/CHEATSHEET.md in a pretty viewer
+cheat() {
+  local sheet="$HOME/.local/share/chezmoi/CHEATSHEET.md"
+  if [[ ! -f "$sheet" ]]; then
+    echo "cheatsheet not found at $sheet" >&2
+    return 1
+  fi
+  if (( $+commands[bat] )); then
+    bat --style=plain --paging=always --language=markdown "$sheet"
+  elif (( $+commands[less] )); then
+    less -R "$sheet"
+  else
+    cat "$sheet"
+  fi
+}
+
 # initialize Starship prompt
 eval "$(starship init zsh)"
 

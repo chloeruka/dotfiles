@@ -1,0 +1,71 @@
+% chezmoi, dotfiles
+
+# Open the cheatsheet in a pretty viewer
+cheat
+
+# Jump into the chezmoi source repo
+chezmoi cd
+
+# Preview pending dotfile changes
+chezmoi diff
+
+# Apply source state to home directory
+chezmoi apply
+
+# Edit a dotfile in the source state
+chezmoi edit <file>
+
+# Pull a manual edit from $HOME back into the source repo
+chezmoi re-add <file>
+
+# Pull from remote and re-apply
+chezmoi update
+
+# See which targets are out of date
+chezmoi status
+
+% git, branches
+
+# Switch to main, pull, and delete locally-merged branches
+git-prune
+
+# Reload the current zsh shell in place
+reload
+
+% media, twitter, gif
+
+# Extract video URL from a tweet
+video-url-from-tweet <tweet_url>
+
+# Download the video from a tweet
+video-from-tweet <tweet_url>
+
+# Convert a video file to a gif via ffmpeg
+video-to-gif <input_file> <output_gif>
+
+# Download a tweet's video and convert it to a gif
+gif-from-tweet <tweet_url> <output_gif>
+
+% editor, vscode
+
+# Open a file or folder in VSCode (sets VSCODE_CWD)
+code <path>
+
+% diagnostics, performance
+
+# Benchmark zsh startup over 10 runs
+timezsh
+
+# Inspect what's bound to ctrl+r and ctrl+g
+bindkey | grep -E '\^R|\^G'
+
+# Show zsh startup profile (must have run `zmodload zsh/zprof` first)
+zprof
+
+% navi, this-cheatsheet
+
+# Show what's in this personal cheatsheet
+navi --path "$XDG_CONFIG_HOME/navi/cheats/personal.cheat"
+
+# Edit this cheatsheet via chezmoi
+chezmoi edit ~/.config/navi/cheats/personal.cheat
