@@ -3,6 +3,7 @@ require "nvchad.autocmds"
 local autocmd = vim.api.nvim_create_autocmd
 
 autocmd("VimEnter", {
+  desc = "Open NvDash when opening directories in NeoVim",
   callback = function(data)
     -- buffer is a directory
     local directory = vim.fn.isdirectory(data.file) == 1
@@ -15,7 +16,17 @@ autocmd("VimEnter", {
     vim.cmd.cd(data.file)
 
     -- open NvDash instead of tree
-    vim.cmd("Nvdash")
+    vim.cmd "Nvdash"
+  end,
+})
+
+autocmd("BufDelete", {
+  desc = "Open NvDash when all buffers are closed",
+  callback = function()
+    local bufs = vim.t.bufs
+    if #bufs == 1 and vim.api.nvim_buf_get_name(bufs[1]) == "" then
+      vim.cmd "Nvdash"
+    end
   end,
 })
 
@@ -41,4 +52,3 @@ autocmd({ "CursorHold" }, {
   end,
   desc = "LSP: Enable floating diagnostic on hover",
 })
-
