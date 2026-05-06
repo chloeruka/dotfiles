@@ -69,3 +69,9 @@ navi --path "$XDG_CONFIG_HOME/navi/cheats/personal.cheat"
 
 # Edit this cheatsheet via chezmoi
 chezmoi edit ~/.config/navi/cheats/personal.cheat
+
+% ruka, common
+
+# Biome lint + automatically fix
+pnpm exec biome check --write
+

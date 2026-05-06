@@ -1,0 +1,4 @@
+cheats:
+  paths:
+    - $XDG_DATA_HOME/navi/cheats
+    - $XDG_CONFIG_HOME/navi/cheats
