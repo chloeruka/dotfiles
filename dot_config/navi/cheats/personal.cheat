@@ -70,8 +70,20 @@ navi --path "$XDG_CONFIG_HOME/navi/cheats/personal.cheat"
 # Edit this cheatsheet via chezmoi
 chezmoi edit ~/.config/navi/cheats/personal.cheat
 
+% pulumi, datadog
+
+# import a team from Datadog by name and UUID
+pulumi import datadog:index/team:Team <team_name> <dd_team_uuid>
+
 % ruka, common
 
 # Biome lint + automatically fix
 pnpm exec biome check --write
 
+% ruka, sed
+
+# Replace matches in file (remove -i '' for stdout)
+sed -i '' -e "/<pattern>/<replacement>/g"
+
+# Delete lines matching pattern in file (remove -i '' for stdout)
+sed -i '' -e "/<pattern>/d"

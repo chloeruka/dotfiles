@@ -52,10 +52,15 @@ chezmoi repo. Open it any time with `cheat` from your shell.
 
 ### Custom maps (from `lua/mappings.lua`)
 
+| Mode | Key  | Action                   |
+| ---- | ---- | ------------------------ |
+| n    | `;`  | enter command mode (`:`) |
+| i    | `jk` | escape to normal mode    |
+
+### Splits
+
 | Mode  | Key                       | Action                           |
 | ----- | ------------------------- | -------------------------------- |
-| n     | `;`                       | enter command mode (`:`)         |
-| i     | `jk`                      | escape to normal mode            |
 | n / t | `<C-h>`                   | toggle horizontal terminal split |
 | n / t | `<C-i>`                   | toggle floating terminal         |
 | n     | `<A-h/j/k/l>`             | move cursor between splits       |
@@ -65,6 +70,13 @@ chezmoi repo. Open it any time with `cheat` from your shell.
 
 NvChad's defaults (telescope, LSP, etc.) are still active — the maps above are
 on top of those.
+
+### Neovim Recipes
+
+| Command                          | Action                                                            |
+| -------------------------------- | ----------------------------------------------------------------- |
+| `:g/<pattern>/d`                 | (Global) delete lines matching `<pattern>`                        |
+| `:%s/<pattern>/<replacement>/gc` | (Substitute Global) lines matching `<pattern>`, with confirmation |
 
 ---
 
