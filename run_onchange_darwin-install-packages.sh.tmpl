@@ -11,8 +11,7 @@ cask {{ . | quote }}
 EOF
 {{ end -}}
 
-export XDG_DATA_HOME=${XDG_DATA_HOME:-"~/.local/share"}
-if [ ! -d "$XDG_DATA_HOME/pnpm" ]; then
-  echo "installing pnpm..."
-  curl -fsSL https://get.pnpm.io/install.sh | zsh -
+# enable corepack so pnpm is managed via Node/mise, not a standalone binary
+if (( $+commands[corepack] )); then
+  corepack enable
 fi
