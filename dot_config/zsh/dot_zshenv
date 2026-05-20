@@ -12,6 +12,9 @@ path=(
 
 export PATH
 
+# [blinq] Set DD_SITE for datadog
+export DD_SITE="us5.datadoghq.com"
+
 # Set XDG dir for PNPM data
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 

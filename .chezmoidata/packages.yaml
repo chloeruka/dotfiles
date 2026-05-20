@@ -1,5 +1,7 @@
 packages:
   darwin:
+    taps:
+      - "datadog-labs/pack" # datadog third-party formulas (pup, etc.)
     brews:
       - "git" # ubiquitous VCS
       - "wget"
@@ -27,7 +29,9 @@ packages:
       - "pulumi" # IaC engine
       - "oci-cli" # Oracle Cloud CLI (oci)
       - "kubectl" # kubernetes CLI (kubectl)
+      - "datadog-labs/pack/pup" # datadog pup (agent-ready CLI)
     casks:
+      - "qlmarkdown" # Markdown Quicklook & Spotlight support
       - "orbstack" # rich docker desktop alternative for MacOS
       - "1password-cli" # password manager CLI
-      - "google-cloud-sdk" # gcloud + bq + gsutil
+      - "gcloud-cli" # gcloud + bq + gsutil (renamed from google-cloud-sdk)
