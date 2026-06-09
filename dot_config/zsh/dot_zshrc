@@ -18,6 +18,11 @@ if (( $+commands[rbenv] )); then
   eval "$(rbenv init - zsh)"
 fi
 
+# java setup
+if (( $+commands[java])); then
+  export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+fi
+
 # benchmark zsh startup
 timezsh() {
   shell=${1-$SHELL}
