@@ -21,6 +21,14 @@ return {
     end,
   },
 
+  -- Java LSP: jdtls is fussier than the other servers, so it gets a dedicated
+  -- plugin instead of the plain vim.lsp.enable path. Launched per-buffer from
+  -- ftplugin/java.lua.
+  {
+    "mfussenegger/nvim-jdtls",
+    ft = "java",
+  },
+
   -- Mason is a portable package manager
   {
     "williamboman/mason.nvim",

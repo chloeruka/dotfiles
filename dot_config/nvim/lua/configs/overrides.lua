@@ -10,6 +10,7 @@ M.treesitter = {
     "c",
     "css",
     "html",
+    "java",
     "javascript",
     "lua",
     "markdown",
@@ -40,6 +41,10 @@ M.mason = {
     "prettier",
     "jsonls",
     "vtsls", -- uses VSCode LSP for typescript development
+
+    -- java development (jdtls is driven by the nvim-jdtls plugin, not vim.lsp.enable)
+    "jdtls",
+    "java-debug-adapter",
   },
 }
 
