@@ -83,7 +83,7 @@ pnpm exec biome check --write
 % ruka, sed
 
 # Replace matches in file (remove -i '' for stdout)
-sed -i '' -e "/<pattern>/<replacement>/g"
+sed -i '' -e 's/<pattern>/<replacement>/g'
 
 # Delete lines matching pattern in file (remove -i '' for stdout)
-sed -i '' -e "/<pattern>/d"
+sed -i '' -e '/<pattern>/d'
