@@ -115,6 +115,18 @@ git-prune() {
   git branch --format '%(refname:short) %(upstream:track)' | awk '$2 == "[gone]" { print $1 }' | xargs -r git branch -D
 }
 
+# scaffold a small node/typescript project in the current directory:
+# package.json (ESM), tsc --init tsconfig with src/dist layout, biome, src/
+tsinit() {
+  npm init -y &&
+  npm i -D typescript @types/node @biomejs/biome &&
+  npx tsc --init &&
+  sed -i '' 's|// "rootDir"|"rootDir"|; s|// "outDir"|"outDir"|' tsconfig.json &&
+  npm pkg set type=module main=dist/index.js &&
+  npx biome init &&
+  mkdir -p src
+}
+
 [ -f "${XDG_CONFIG_HOME-}/zsh/fzf.zsh" ] && source "${XDG_CONFIG_HOME-}/zsh/fzf.zsh"
 
 export FZF_TMUX=1

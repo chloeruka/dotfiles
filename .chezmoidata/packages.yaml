@@ -29,6 +29,7 @@ packages:
       - "pulumi" # IaC engine
       - "oci-cli" # Oracle Cloud CLI (oci)
       - "kubectl" # kubernetes CLI (kubectl)
+      - "libpq" # postgres client (psql), keg-only
       - "datadog-labs/pack/pup" # datadog pup (agent-ready CLI)
     casks:
       - "qlmarkdown" # Markdown Quicklook & Spotlight support

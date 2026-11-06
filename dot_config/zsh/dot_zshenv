@@ -7,6 +7,7 @@ path=(
   '$HOME/Library/Python/3.9/bin'
   '$HOME/.orbstack/bin'
   '$XDG_DATA_HOME/pnpm/bin'
+  '/opt/homebrew/opt/libpq/bin'
   $path
 )
 

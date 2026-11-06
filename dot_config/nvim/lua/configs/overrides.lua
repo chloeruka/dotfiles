@@ -12,6 +12,7 @@ M.treesitter = {
     "html",
     "java",
     "javascript",
+    "kotlin",
     "lua",
     "markdown",
     "markdown_inline",
@@ -45,6 +46,9 @@ M.mason = {
     -- java development (jdtls is driven by the nvim-jdtls plugin, not vim.lsp.enable)
     "jdtls",
     "java-debug-adapter",
+
+    -- kotlin development (ships with sufficient defaults, enabled via vim.lsp.enable)
+    "kotlin-language-server",
   },
 }
 

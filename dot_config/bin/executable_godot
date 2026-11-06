@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Godot CLI shim -> forwards to the Godot.app binary in /Applications.
+# Managed by chezmoi; applied to ~/.local/bin/godot (on PATH via dot_zshenv).
+exec "/Applications/Godot.app/Contents/MacOS/Godot" "$@"

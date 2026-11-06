@@ -5,7 +5,7 @@
 require("nvchad.configs.lspconfig").defaults()
 
 -- configure language servers which ship with sufficient defaults
-vim.lsp.enable { "html", "cssls", "yamlls", "jsonls", "tflint" }
+vim.lsp.enable { "html", "cssls", "yamlls", "tflint", "kotlin_language_server" }
 
 vim.lsp.config["vtsls"] = {
   settings = {
